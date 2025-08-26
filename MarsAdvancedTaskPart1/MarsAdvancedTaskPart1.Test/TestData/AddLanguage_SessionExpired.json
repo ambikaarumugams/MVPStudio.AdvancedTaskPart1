@@ -1,0 +1,13 @@
+{
+    "AddLanguage": [
+        {
+            "Language": "Russian",
+            "LanguageLevel": "Basic",
+            "Validation": {
+                "ExpectedMessage": "undefined"
+            }
+        }
+    ],
+    "UpdateLanguage": null,
+    "DeleteLanguage": null
+}

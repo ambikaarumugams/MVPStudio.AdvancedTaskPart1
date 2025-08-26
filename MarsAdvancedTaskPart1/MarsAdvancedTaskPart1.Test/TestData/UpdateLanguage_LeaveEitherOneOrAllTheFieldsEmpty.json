@@ -1,0 +1,35 @@
+{
+  "AddLanguage": [
+    {
+      "Language": "French",
+      "LanguageLevel": "Fluent"
+    }
+  ],
+    "UpdateLanguage": [
+        {
+            "ExistingLanguage": "French",
+            "LanguageToUpdate": "",
+            "LanguageLevelToUpdate": "Fluent",
+            "Validation": {
+                "ExpectedMessage": "Please enter language and level"
+            }
+        },
+        {
+            "ExistingLanguage": "French",
+            "LanguageToUpdate": "Gujarati",
+            "LanguageLevelToUpdate": "",
+            "Validation": {
+                "ExpectedMessage": "Please enter language and level"
+            }
+        },
+        {
+            "ExistingLanguage": "French",
+            "LanguageToUpdate": "",
+            "LanguageLevelToUpdate": "",
+            "Validation": {
+                "ExpectedMessage": "Please enter language and level"
+            }
+        }
+    ],
+    "DeleteLanguage": null
+}

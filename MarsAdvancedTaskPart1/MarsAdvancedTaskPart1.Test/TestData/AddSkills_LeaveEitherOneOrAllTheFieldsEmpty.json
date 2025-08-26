@@ -1,0 +1,27 @@
+{
+  "AddSkill": [
+    {
+      "Skill": "",
+      "SkillLevel": "Beginner",
+      "SkillValidation": {
+        "SkillExpectedMessage": "Please enter skill and experience level"
+      }
+    },
+    {
+      "Skill": "Teaching",
+      "SkillLevel": "",
+      "SkillValidation": {
+        "SkillExpectedMessage": "Please enter skill and experience level"
+      }
+    },
+    {
+      "Skill": "",
+      "SkillLevel": "",
+      "SkillValidation": {
+        "SkillExpectedMessage": "Please enter skill and experience level"
+      }
+    }
+  ],
+  "UpdateSkill": [],
+  "DeleteSkill": []
+}

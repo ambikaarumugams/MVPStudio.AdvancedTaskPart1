@@ -1,0 +1,55 @@
+{
+    "AddLanguage": [
+        {
+            "Language": "Tamil",
+            "LanguageLevel": "Native/Bilingual"
+        },
+        {
+            "Language": "English",
+            "LanguageLevel": "Fluent"
+        },
+        {
+            "Language": "French",
+            "LanguageLevel": "Basic"
+        },
+        {
+            "Language": "German",
+            "LanguageLevel": "Conversational"
+        }
+    ],
+    "UpdateLanguage": [
+        {
+            "ExistingLanguage": "Tamil",
+            "LanguageToUpdate": "fghghjhkjk",
+            "LanguageLevelToUpdate": "Conversational",
+            "Validation": {
+                "ExpectedMesage": "Invalid Language"
+            }
+        },
+        {
+            "ExistingLanguage": "English",
+            "LanguageToUpdate": "4345679989",
+            "LanguageLevelToUpdate": "Basic",
+            "Validation": {
+                "ExpectedMesage": "Invalid Language"
+            }
+        },
+        {
+            "ExistingLanguage": "French",
+            "LanguageToUpdate": "#@#$$%%^&&",
+            "LanguageLevelToUpdate": "Fluent",
+            "Validation": {
+                "ExpectedMesage": "Invalid Language"
+            }
+        },
+        {
+            "ExistingLanguage": "German",
+            "LanguageToUpdate": " ",
+            "LanguageLevelToUpdate": "Native/Bilingual",
+            "Validation": {
+                "ExpectedMesage": "Invalid Language"
+            }
+        }
+    ],
+    "DeleteLanguage": null
+}

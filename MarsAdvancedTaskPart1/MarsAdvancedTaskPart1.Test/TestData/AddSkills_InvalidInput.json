@@ -1,0 +1,34 @@
+{
+  "AddSkill": [
+    {
+      "Skill": "fghghjhkjk",
+      "SkillLevel": "Beginner",
+      "SkillValidation": {
+        "SkillExpectedMessage": "Invalid skill"
+      }
+    },
+    {
+      "Skill": "4345679989",
+      "SkillLevel": "Intermediate",
+      "SkillValidation": {
+        "SkillExpectedMessage": "Invalid skill"
+      }
+    },
+    {
+      "Skill": "#@#$$%%^&&",
+      "SkillLevel": "Expert",
+      "SkillValidation": {
+        "SkillExpectedMessage": "Invalid skill"
+      }
+    },
+    {
+      "Skill": " ",
+      "SkillLevel": "Beginner",
+      "SkillValidation": {
+        "SkillExpectedMessage": "Invalid skill"
+      }
+    }
+  ],
+  "UpdateSkill": [],
+  "DeleteSkill": []
+}

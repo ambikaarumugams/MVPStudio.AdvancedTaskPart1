@@ -1,0 +1,25 @@
+{
+    "AddLanguage": [
+        {
+            "Language": "Malayalam",
+            "LanguageLevel": "Basic"
+        },
+        {
+            "Language": "Urdu",
+            "LanguageLevel": "Conversational"
+        }
+    ],
+    "UpdateLanguage": [
+        {
+            "ExistingLanguage": "Malayalam",
+            "LanguageToUpdate": "Hindi",
+            "LanguageLevelToUpdate": "Conversational"
+        },
+        {
+            "ExistingLanguage": "Urdu",
+            "LanguageToUpdate": "Chinese",
+            "LanguageLevelToUpdate": "Basic"
+        }
+    ],
+    "DeleteLanguage": null
+}

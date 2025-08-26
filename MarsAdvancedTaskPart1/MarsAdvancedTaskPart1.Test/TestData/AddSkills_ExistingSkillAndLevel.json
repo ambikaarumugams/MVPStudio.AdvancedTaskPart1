@@ -1,0 +1,17 @@
+{
+  "AddSkill": [
+    {
+      "Skill": "Baking",
+      "SkillLevel": "Beginner"
+    },
+    {
+      "Skill": "Baking",
+      "SkillLevel": "Beginner",
+      "SkillValidation": {
+        "SkillExpectedMessage": "This skill is already exist in your skill list."
+      }
+    }
+  ],
+  "UpdateSkill": [],
+  "DeleteSkill": []
+}

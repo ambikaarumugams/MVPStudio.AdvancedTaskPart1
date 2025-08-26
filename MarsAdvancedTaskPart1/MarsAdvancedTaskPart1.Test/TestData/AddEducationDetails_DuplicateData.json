@@ -1,0 +1,28 @@
+{
+  "TestItems": [
+    {
+      "EducationDetailsToAdd": {
+        "CollegeUniversityName": "NIT",
+        "Country": "India",
+        "Title": "M.Tech",
+        "Degree": "Power Systems",
+        "YearOfGraduation": "2009",
+        "EducationExpectedMessage": "Education has been added"
+      },
+      "EducationDetailsToUpdate": null,
+      "EducationDetailsToDelete": null
+    },
+    {
+      "EducationDetailsToAdd": {
+        "CollegeUniversityName": "NIT",
+        "Country": "India",
+        "Title": "M.Tech",
+        "Degree": "Power Systems",
+        "YearOfGraduation": "2009",
+        "EducationExpectedMessage": "This information is already exist."
+      },
+      "EducationDetailsToUpdate": null,
+      "EducationDetailsToDelete": null
+    }
+  ]
+}

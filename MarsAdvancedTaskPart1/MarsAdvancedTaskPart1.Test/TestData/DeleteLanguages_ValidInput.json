@@ -1,0 +1,21 @@
+{
+    "AddLanguage": [
+        {
+            "Language": "Kannada",
+            "LanguageLevel": "Native/Bilingual"
+        },
+        {
+            "Language": "Sinhalese",
+            "LanguageLevel": "Fluent"
+        }
+    ],
+    "UpdateLanguage": null,
+    "DeleteLanguage": [
+        {
+            "LanguageToBeDeleted": "Kannada"
+        },
+        {
+            "LanguageToBeDeleted": "Sinhalese"
+        }
+    ]
+}

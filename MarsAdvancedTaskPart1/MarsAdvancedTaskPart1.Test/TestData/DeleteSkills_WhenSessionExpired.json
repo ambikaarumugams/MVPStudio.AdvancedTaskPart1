@@ -1,0 +1,17 @@
+{
+  "AddSkill": [
+    {
+      "Skill": "Java",
+      "SkillLevel": "Beginner"
+    }
+  ],
+  "UpdateSkill": [],
+  "DeleteSkill": [
+    {
+      "SkillToBeDeleted": "Java",
+      "SkillValidation": {
+        "SkillExpectedMessage": "There is an error when deleting skill"
+      }
+    }
+  ]
+}

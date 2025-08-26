@@ -1,0 +1,19 @@
+{
+  "AddSkill": [
+    {
+      "Skill": "C",
+      "SkillLevel": "Expert"
+    }
+  ],
+  "UpdateSkill": [
+    {
+      "ExistingSkill": "C",
+      "SkillToUpdate": "C",
+      "SkillLevelToUpdate": "Expert",
+      "SkillValidation": {
+        "SkillExpectedMessage": "This skill is already added to your skill list."
+      }
+    }
+  ],
+  "DeleteSkill": []
+}

@@ -1,0 +1,13 @@
+{
+  "AddLanguage": [
+    {
+      "Language": "{LONG_1000}",
+      "LanguageLevel": "Basic",
+      "Validation": {
+        "ExpectedMessage": "Language name is too long"
+      }
+    }
+  ],
+  "UpdateLanguage": null,
+  "DeleteLanguage": null
+}

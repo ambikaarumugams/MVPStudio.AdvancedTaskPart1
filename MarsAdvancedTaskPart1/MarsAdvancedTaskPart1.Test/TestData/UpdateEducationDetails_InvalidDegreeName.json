@@ -1,0 +1,80 @@
+{
+    "TestItems": [
+        {
+          "EducationDetailsToAdd": {
+            "CollegeUniversityName": "University of Sydney",
+            "Country": "Australia",
+            "Title": "B.A",
+            "Degree": "Astrophysics",
+            "YearOfGraduation": "2018",
+            "EducationExpectedMessage": "Education has been added"
+          },
+          "EducationDetailsToUpdate": {
+            "CollegeUniversityName": "University of Sydney",
+            "Country": "Australia",
+            "Title": "B.A",
+            "Degree": "fdhjfhghjkjm",
+            "YearOfGraduation": "2018",
+            "EducationExpectedMessage": "Education information was invalid"
+          },
+            "EducationDetailsToDelete": null
+        },
+        {
+          "EducationDetailsToAdd": {
+            "CollegeUniversityName": "University of California",
+            "Country": "United States",
+            "Title": "M.B.A",
+            "Degree": "Master of Business Administration",
+            "YearOfGraduation": "2021",
+            "EducationExpectedMessage": "Education has been added"
+          },
+          "EducationDetailsToUpdate": {
+            "CollegeUniversityName": "University of California",
+            "Country": "United States",
+            "Title": "M.B.A",
+            "Degree": "123567890",
+            "YearOfGraduation": "2021",
+            "EducationExpectedMessage": "Education information was invalid"
+          },
+            "EducationDetailsToDelete": null
+        },
+        {
+          "EducationDetailsToAdd": {
+            "CollegeUniversityName": "University of Cambridge",
+            "Country": "United Kingdom",
+            "Title": "PHD",
+            "Degree": "Computer Science",
+            "YearOfGraduation": "2023",
+            "EducationExpectedMessage": "Education has been added"
+          },
+          "EducationDetailsToUpdate": {
+            "CollegeUniversityName": "University of Cambridge",
+            "Country": "United Kingdom",
+            "Title": "PHD",
+            "Degree": "!@#$%&**&%",
+            "YearOfGraduation": "2023",
+            "EducationExpectedMessage": "Education information was invalid"
+          },
+            "EducationDetailsToDelete": null
+        },
+        {
+          "EducationDetailsToAdd": {
+            "CollegeUniversityName": "University of Edinburgh",
+            "Country": "United Kingdom",
+            "Title": "PHD",
+            "Degree": "Computer Science",
+            "YearOfGraduation": "2025",
+            "EducationExpectedMessage": "Education has been added"
+          },
+          "EducationDetailsToUpdate": {
+            "CollegeUniversityName": "University of Edinburgh",
+            "Country": "United Kingdom",
+            "Title": "PHD",
+            "Degree": "   ",
+            "YearOfGraduation": "2025",
+            "EducationExpectedMessage": "Education information was invalid"
+          },
+            "EducationDetailsToDelete": null
+        }
+    ]
+}

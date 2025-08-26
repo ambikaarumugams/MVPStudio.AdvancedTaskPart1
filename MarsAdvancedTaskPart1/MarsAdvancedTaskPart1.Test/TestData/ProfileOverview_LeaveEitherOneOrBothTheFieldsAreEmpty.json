@@ -1,0 +1,31 @@
+{
+  "ProfileDetails": [
+    {
+      "FirstName": "<Empty>",
+      "LastName": "<Empty>",
+      "Location": null,
+      "Availability": null,
+      "Hours": null,
+      "EarnTarget": null,
+      "DisplayNameExpectedMessage": "Invalid Username"
+    },
+    {
+      "FirstName": "Lyndall",
+      "LastName": "<Empty>",
+      "Location": null,
+      "Availability": null,
+      "Hours": null,
+      "EarnTarget": null,
+      "DisplayNameExpectedMessage": "Invalid Username"
+    },
+    {
+      "FirstName": "<Empty>",
+      "LastName": "Rod",
+      "Location": null,
+      "Availability": null,
+      "Hours": null,
+      "EarnTarget": null,
+      "DisplayNameExpectedMessage": "Invalid Username"
+    }
+  ]
+}

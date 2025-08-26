@@ -1,0 +1,34 @@
+{
+    "AddLanguage": [
+        {
+            "Language": "fghghjhkjk",
+            "LanguageLevel": "Native/Bilingual",
+            "Validation": {
+                "ExpectedMessage": "Invalid Language"
+            }
+        },
+        {
+            "Language": "4345679989",
+            "LanguageLevel": "Basic",
+            "Validation": {
+                "ExpectedMessage": "Invalid Language"
+            }
+        },
+        {
+            "Language": "#@#$$%%^&&",
+            "LanguageLevel": "Fluent",
+            "Validation": {
+                "ExpectedMessage": "Invalid Language"
+            }
+        },
+        {
+            "Language": " ",
+            "LanguageLevel": "Native/Bilingual",
+            "Validation": {
+                "ExpectedMessage": "Invalid Language"
+            }
+        }
+    ],
+    "UpdateLanguage": null,
+    "DeleteLanguage": null
+}

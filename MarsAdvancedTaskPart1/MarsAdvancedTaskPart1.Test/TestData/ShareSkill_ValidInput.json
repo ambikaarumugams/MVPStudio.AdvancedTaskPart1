@@ -1,0 +1,62 @@
+{
+  "ShareSkills": [
+    {
+      "Title": null,
+      "Description": null,
+      "Category": null,
+      "SubCategory": null,
+      "Tags": [ "Manual", "BDD", "JMeter" ],
+      "ServiceType": "1",
+      "LocationType": "0",
+      "StartDate": "6/10/2025 - 6/14/2025",
+      "EndDate": "2025-12-01",
+      "Events": [
+        {
+          "Title": "Mon Slot",
+          "Start": "10:00AM",
+          "End": "12:00PM",
+          "AllDayEvent": false
+        }
+      ],
+      "SkillTradeType": "Credit",
+      "CreditAmount": 50,
+      "SkillExchangeTags": [],
+      "WorkSamples": [ "C:\\Users\\Senthil\\Downloads\\Jobreadyprogram" ],
+      "Active": "true",
+      "ExpectedToastType": null,
+      "ExpectedToastContains": "null"
+    },
+    {
+      "Title": "Yoga Classes",
+      "Description": "Hatha and Vinyasa yoga classes for all levels.",
+      "Category": "Health & Fitness",
+      "SubCategory": "Yoga",
+      "Tags": [ "Yoga", "Wellness", "Fitness" ],
+      "ServiceType": "0",
+      "LocationType": "1",
+      "StartDate": "2025-10-01",
+      "EndDate": "2026-01-01",
+      "Events": [
+        {
+          "Title": "Tue Slot",
+          "Start": "6:00AM",
+          "End": "7:00AM",
+          "AllDayEvent": false
+        },
+        {
+          "Title": "Thu Slot",
+          "Start": "6:00AM",
+          "End": "7:00AM",
+          "AllDayEvent": false
+        }
+      ],
+      "SkillTradeType": "Exchange",
+      "SkillExchangeTags": [ "Meditation", "Nutrition Advice" ],
+      "CreditAmount": null,
+      "WorkSamples": [  ],
+      "Active": "true",
+      "ExpectedToastType": null,
+      "ExpectedToastContains": null
+    }
+  ]
+}

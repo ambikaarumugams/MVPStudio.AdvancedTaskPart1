@@ -1,0 +1,26 @@
+{
+  "AddSkill": [
+    {
+      "Skill": "Problem Solving",
+      "SkillLevel": "Beginner",
+      "SkillValidation": {}
+    },
+    {
+      "Skill": "Team work",
+      "SkillLevel": "Intermediate",
+      "SkillValidation": {}
+    },
+    {
+      "Skill": "Communication",
+      "SkillLevel": "Expert",
+      "SkillValidation": {}
+    },
+    {
+      "Skill": "Adaptability",
+      "SkillLevel": "Intermediate",
+      "SkillValidation": {}
+    }
+  ],
+  "UpdateSkill": [],
+  "DeleteSkill": []
+}

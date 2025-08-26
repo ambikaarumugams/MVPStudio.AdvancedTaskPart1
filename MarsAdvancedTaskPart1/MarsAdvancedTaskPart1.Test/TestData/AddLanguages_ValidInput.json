@@ -1,0 +1,22 @@
+{
+  "AddLanguage": [
+    {
+      "Language": "Tamil",
+      "LanguageLevel": "Native/Bilingual"
+    },
+    {
+      "Language": "English",
+      "LanguageLevel": "Fluent",
+    },
+    {
+      "Language": "French",
+      "LanguageLevel": "Basic"
+    },
+    {
+      "Language": "German",
+      "LanguageLevel": "Conversational"
+    }
+  ],
+  "UpdateLanguage": null,
+  "DeleteLanguage": null
+}

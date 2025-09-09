@@ -30,7 +30,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
 
             foreach (var aboutLink in aboutLinks)
             {
-                aboutLink.Key.Invoke();
+                aboutLink.Key.Invoke(); //call the action method stored in the delegate.
                 State.Test.Log(Status.Info, $"Clicked on {aboutLink.Value} link. It shows loading....");
                 string actualUrl = State.Driver.Url; // get current URL
                 actualMessages.Add(actualUrl);

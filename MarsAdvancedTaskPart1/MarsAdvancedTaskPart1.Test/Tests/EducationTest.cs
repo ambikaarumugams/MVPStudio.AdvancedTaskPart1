@@ -3,6 +3,8 @@ using MarsAdvancedTaskPart1.Framework.Helpers;
 using MarsAdvancedTaskPart1.Framework.Models;
 using MarsAdvancedTaskPart1.Framework.Pages.Components.NavigationMenuComponent.ProfileComponent.ProfileMenuTabComponent;
 
+[assembly: Parallelizable(ParallelScope.All)] // or All
+[assembly: LevelOfParallelism(5)]
 namespace MarsAdvancedTaskPart1.Test.Tests
 {
     [TestFixture]
@@ -10,7 +12,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
     {
         private EducationComponent? _educationComponent;
 
-        [Test, TestCaseSource(typeof(TestDataProvider), nameof(TestDataProvider.AddEducationDetailsValidData))] //Ad
+        [Test, TestCaseSource(typeof(TestDataProvider), nameof(TestDataProvider.AddEducationDetailsValidData))] 
         public void AddEducationDetails_ValidInput(EducationModel educationModel)
         {
             List<string> actualMessages = new();
@@ -32,7 +34,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 actualMessages.Add(successMessage);
                 if (educationDetailsToAdd.EducationExpectedMessage != null)
                     expectedMessages.Add(educationDetailsToAdd.EducationExpectedMessage);
-                State.EducationToCleanUp.Add(educationDetailsToAdd.CollegeUniversityName);
+                State.EducationCleanUp.Add(educationDetailsToAdd.CollegeUniversityName);
             }
 
             State.Assert.ListsMatch(actualMessages, expectedMessages);
@@ -62,7 +64,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
 
                 if (string.Equals(messageType, "Success", StringComparison.OrdinalIgnoreCase))
                 {
-                    State.EducationToCleanUp.Add(educationDetailsToAdd.CollegeUniversityName);
+                    State.EducationCleanUp.Add(educationDetailsToAdd.CollegeUniversityName);
                 }
                 else if (string.Equals(messageType, "Error", StringComparison.OrdinalIgnoreCase))
                 {
@@ -100,7 +102,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
 
                 if (string.Equals(messageType, "Success", StringComparison.OrdinalIgnoreCase))
                 {
-                    State.EducationToCleanUp.Add(educationDetailsToAdd.CollegeUniversityName);
+                    State.EducationCleanUp.Add(educationDetailsToAdd.CollegeUniversityName);
                 }
                 else if (string.Equals(messageType, "Error", StringComparison.OrdinalIgnoreCase))
                 {
@@ -135,7 +137,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 actualMessages.Add(actualMessage);
                 if (educationDetailsToAdd.EducationExpectedMessage != null)
                     expectedMessages.Add(educationDetailsToAdd.EducationExpectedMessage);
-                State.EducationToCleanUp.Add(educationDetailsToAdd.CollegeUniversityName);
+                State.EducationCleanUp.Add(educationDetailsToAdd.CollegeUniversityName);
             }
 
             foreach (var expected in expectedMessages)
@@ -192,7 +194,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 actualMessages.Add(actualMessage);
                 if (educationDetailsToAdd.EducationExpectedMessage != null)
                     expectedMessages.Add(educationDetailsToAdd.EducationExpectedMessage);
-                State.EducationToCleanUp.Add(educationDetailsToAdd.CollegeUniversityName);
+                State.EducationCleanUp.Add(educationDetailsToAdd.CollegeUniversityName);
             }
 
             foreach (var expected in expectedMessages)
@@ -223,7 +225,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 actualMessages.Add(actualMessage);
                 if (educationDetailsToAdd.EducationExpectedMessage != null)
                     expectedMessages.Add(educationDetailsToAdd.EducationExpectedMessage);
-                State.EducationToCleanUp.Add(educationDetailsToAdd.CollegeUniversityName);
+                State.EducationCleanUp.Add(educationDetailsToAdd.CollegeUniversityName);
             }
 
             foreach (var expected in expectedMessages)
@@ -283,7 +285,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
 
                 if (string.Equals(messageType, "Success", StringComparison.OrdinalIgnoreCase))
                 {
-                    State.EducationToCleanUp.Add(educationDetailsToAdd.CollegeUniversityName);
+                    State.EducationCleanUp.Add(educationDetailsToAdd.CollegeUniversityName);
                 }
                 else if (string.Equals(messageType, "Error", StringComparison.OrdinalIgnoreCase))
                 {
@@ -347,7 +349,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 actualMessages.Add(successMessage);
                 if (educationDetailsToAdd.EducationExpectedMessage != null)
                     expectedMessages.Add(educationDetailsToAdd.EducationExpectedMessage);
-                State.EducationToCleanUp.Add(educationDetailsToAdd.CollegeUniversityName);
+                State.EducationCleanUp.Add(educationDetailsToAdd.CollegeUniversityName);
             }
             State.Assert.ListsMatch(actualMessages, expectedMessages);
         }
@@ -384,7 +386,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 actualMessages.Add(successMessage);
                 if (detailsToUpdate.EducationExpectedMessage != null)
                     expectedMessages.Add(detailsToUpdate.EducationExpectedMessage);
-                State.EducationToCleanUp.Add(detailsToUpdate.CollegeUniversityName);
+                State.EducationCleanUp.Add(detailsToUpdate.CollegeUniversityName);
             }
 
             foreach (var expected in expectedMessages)
@@ -427,13 +429,13 @@ namespace MarsAdvancedTaskPart1.Test.Tests
 
                 if (string.Equals(messageType, "Success", StringComparison.OrdinalIgnoreCase))
                 {
-                    State.EducationToCleanUp.Add(detailsToUpdate.CollegeUniversityName);
+                    State.EducationCleanUp.Add(detailsToUpdate.CollegeUniversityName);
                 }
                 else if (string.Equals(messageType, "Error", StringComparison.OrdinalIgnoreCase))
                 {
                     if (detailsToUpdate.EducationExpectedMessage != null)
                         expectedMessages.Add(detailsToUpdate.EducationExpectedMessage);
-                    State.EducationToCleanUp.Add(existingDetails.CollegeUniversityName);
+                    State.EducationCleanUp.Add(existingDetails.CollegeUniversityName);
                 }
             }
 
@@ -478,13 +480,13 @@ namespace MarsAdvancedTaskPart1.Test.Tests
 
                 if (string.Equals(messageType, "Success", StringComparison.OrdinalIgnoreCase))
                 {
-                    State.EducationToCleanUp.Add(detailsToUpdate.CollegeUniversityName);
+                    State.EducationCleanUp.Add(detailsToUpdate.CollegeUniversityName);
                 }
                 else if (string.Equals(messageType, "Error", StringComparison.OrdinalIgnoreCase))
                 {
                     if (detailsToUpdate.EducationExpectedMessage != null)
                         expectedMessages.Add(detailsToUpdate.EducationExpectedMessage);
-                    State.EducationToCleanUp.Add(existingDetails.CollegeUniversityName);
+                    State.EducationCleanUp.Add(existingDetails.CollegeUniversityName);
                 }
             }
 
@@ -513,7 +515,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 _educationComponent.AddEducationDetails(educationDetailsToAdd.CollegeUniversityName, educationDetailsToAdd.Country, educationDetailsToAdd.Title, educationDetailsToAdd.Degree, educationDetailsToAdd.YearOfGraduation);
                 var successMessage = _educationComponent.GetSuccessMessage();
                 Console.WriteLine($"Message:{successMessage}");
-                State.EducationToCleanUp.Add(educationDetailsToAdd.CollegeUniversityName);
+                State.EducationCleanUp.Add(educationDetailsToAdd.CollegeUniversityName);
             }
 
             State.Test.Log(Status.Info, "Enter the education details to update ...");
@@ -555,7 +557,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 var actualMessage = _educationComponent.GetSuccessMessage();
                 Console.WriteLine($"Message:{actualMessage}");
                 actualMessages.Add(actualMessage);
-                State.EducationToCleanUp.Add(educationDetailsToAdd.CollegeUniversityName);
+                State.EducationCleanUp.Add(educationDetailsToAdd.CollegeUniversityName);
             }
 
             State.Test.Log(Status.Info, "Enter the education details to update ...");
@@ -614,7 +616,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 }
                 if (detailsToUpdate.EducationExpectedMessage != null)
                     expectedMessages.Add(detailsToUpdate.EducationExpectedMessage);
-                State.EducationToCleanUp.Add(detailsToUpdate.CollegeUniversityName);
+                State.EducationCleanUp.Add(detailsToUpdate.CollegeUniversityName);
             }
             foreach (var expected in expectedMessages)
             {
@@ -658,7 +660,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 _educationComponent.ClickSignOutButton();
                 State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
                 _educationComponent.NavigateToTheProfilePage();
-                State.EducationToCleanUp.Add(existingDetails.CollegeUniversityName);
+                State.EducationCleanUp.Add(existingDetails.CollegeUniversityName);
             }
             foreach (var expected in expectedMessages)
             {
@@ -699,7 +701,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 actualMessages.Add(successMessage);
                 if (detailsToUpdate.EducationExpectedMessage != null)
                     expectedMessages.Add(detailsToUpdate.EducationExpectedMessage);
-                State.EducationToCleanUp.Add(detailsToUpdate.CollegeUniversityName);
+                State.EducationCleanUp.Add(detailsToUpdate.CollegeUniversityName);
 
             }
            
@@ -739,7 +741,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 actualMessages.Add(successMessage);
                 if (detailsToUpdate.EducationExpectedMessage != null)
                     expectedMessages.Add(detailsToUpdate.EducationExpectedMessage);
-                State.EducationToCleanUp.Add(detailsToUpdate.CollegeUniversityName);
+                State.EducationCleanUp.Add(detailsToUpdate.CollegeUniversityName);
 
             }
             foreach (var expected in expectedMessages)
@@ -781,7 +783,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 actualMessages.Add(successMessage);
                 if (detailsToUpdate.EducationExpectedMessage != null)
                     expectedMessages.Add(detailsToUpdate.EducationExpectedMessage);
-                State.EducationToCleanUp.Add(detailsToUpdate.CollegeUniversityName);
+                State.EducationCleanUp.Add(detailsToUpdate.CollegeUniversityName);
             }
             foreach (var expected in expectedMessages)
             {
@@ -844,7 +846,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 _educationComponent.AddEducationDetails(edu.CollegeUniversityName, edu.Country, edu.Title, edu.Degree, edu.YearOfGraduation);
                 var successMessage = _educationComponent.GetSuccessMessage();
                 Console.WriteLine($"Message:{successMessage}");
-                State.EducationToCleanUp.Add(edu.CollegeUniversityName);
+                State.EducationCleanUp.Add(edu.CollegeUniversityName);
             }
 
             State.Test.Log(Status.Info, "Enter the education details to delete ...");

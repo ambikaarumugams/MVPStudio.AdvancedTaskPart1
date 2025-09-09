@@ -1,10 +1,5 @@
 ﻿using AventStack.ExtentReports;
 using MarsAdvancedTaskPart1.Framework.Pages.Components.NavigationMenuComponent;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MarsAdvancedTaskPart1.Test.Tests
 {
@@ -29,7 +24,8 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             expectedMessages.Add(currentUrl);
             var receiveRequestHrefValue= _manageRequestsComponent.GetAttributeOfReceiveRequestsLink();
             actualMessages.Add(receiveRequestHrefValue);
-         
+            var textOfReceivedRequest=_manageRequestsComponent.GetTextReceivedRequest();
+            Console.WriteLine($"Received request page message:{textOfReceivedRequest}");
             State.Assert.ListsMatch(actualMessages, expectedMessages);
         }
 
@@ -49,6 +45,9 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             expectedMessages.Add(currentUrl);
             var sendRequestHrefValue = _manageRequestsComponent.GetAttributeOfSendRequestsLink();
             actualMessages.Add(sendRequestHrefValue);
+
+            var textOfSentRequest = _manageRequestsComponent.GetTextSentRequest();
+            Console.WriteLine($"Sent request page message:{textOfSentRequest}");
 
             State.Assert.ListsMatch(actualMessages, expectedMessages);
         }

@@ -8,8 +8,17 @@ namespace MarsAdvancedTaskPart1.Framework.Helpers
         public static T ReadJson<T>(string jsonPath)
         {
             var fullPath = Path.Combine(Directory.GetCurrentDirectory(), jsonPath);
+
+            if (!File.Exists(fullPath))
+                throw new FileNotFoundException($"JSON file not found: {fullPath}");
+
             var jsonData = File.ReadAllText(fullPath);
-            return JsonConvert.DeserializeObject<T>(jsonData);
+            var obj = JsonConvert.DeserializeObject<T>(jsonData);
+
+            if (obj == null)
+                throw new InvalidOperationException($"Could not deserialize {fullPath} into {typeof(T).Name}");
+           
+            return obj;
         }
     }
 }

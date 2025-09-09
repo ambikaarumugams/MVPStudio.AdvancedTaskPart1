@@ -20,7 +20,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             var actualMessage1 = _transactions.GetTableData();
             var actualMessage2 = _transactions.GetCurrentBalanceValue();
             var actualMessage3 = _transactions.GetCurrentBalanceLabel();
-            Console.WriteLine(actualMessage1, actualMessage2, actualMessage3);
+            State.Test.Log(Status.Info,$"Table data: {actualMessage1},Current balance value: {actualMessage2}, Current balance label: {actualMessage3}");
         }
     }
 }

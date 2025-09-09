@@ -29,7 +29,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 Console.WriteLine($"SuccessMessage:{successMessage}");
                 actualMessages.Add(successMessage);
                 expectedMessages.Add(lang.Language);
-                State.LanguagesToCleanUp.Add(lang.Language); //Add languages to clean up
+                State.LanguagesCleanUp.Add(lang.Language); //Add languages to clean up
             }
 
             foreach (var expected in expectedMessages)
@@ -67,7 +67,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 Console.WriteLine($"SuccessMessage:{successMessage}");
                 actualMessages.Add(successMessage);
                 expectedMessages.Add(lang.LanguageToUpdate);
-                State.LanguagesToCleanUp.Add(lang.LanguageToUpdate);
+                State.LanguagesCleanUp.Add(lang.LanguageToUpdate);
             }
 
             foreach (var expected in expectedMessages)
@@ -142,7 +142,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             Console.WriteLine($"Success Message:{updateSuccessMessage}");
             actualMessages.Add(updateSuccessMessage);
             expectedMessages.Add(update);
-            State.LanguagesToCleanUp.Add(update);
+            State.LanguagesCleanUp.Add(update);
 
             var actualMessage = actualMessages.FirstOrDefault();
             var expectedMessage = expectedMessages.FirstOrDefault();
@@ -172,7 +172,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 Console.WriteLine($"Message:{successMessage}");
                 actualMessages.Add(successMessage);
                 expectedMessages.Add(lang.Validation.ExpectedMessage);
-                State.LanguagesToCleanUp.Add(lang.Language); //Add languages to clean up
+                State.LanguagesCleanUp.Add(lang.Language); //Add languages to clean up
             }
 
             foreach (string? expected in expectedMessages)
@@ -209,7 +209,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 Console.WriteLine($"Message:{message}");
                 actualMessages.Add(message);
                 expectedMessages.Add(lang.LanguageToUpdate);
-                State.LanguagesToCleanUp.Add(lang.LanguageToUpdate);
+                State.LanguagesCleanUp.Add(lang.LanguageToUpdate);
             }
 
             foreach (var expected in expectedMessages)
@@ -265,7 +265,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 _languagesComponent.AddNewLanguageAndLevel(lang.Language, lang.LanguageLevel);
                 var successMessage = _languagesComponent.GetSuccessMessageForAddNewLanguage(lang.Language);
                 Console.WriteLine($"Success Message:{successMessage}");
-                State.LanguagesToCleanUp.Add(lang.Language);
+                State.LanguagesCleanUp.Add(lang.Language);
             }
 
             State.Test.Log(Status.Info, "Enter the language and level for update using existing language");
@@ -308,7 +308,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 _languagesComponent.AddNewLanguageAndLevel(lang.Language, lang.LanguageLevel);
                 var successMessage = _languagesComponent.GetSuccessMessageForAddNewLanguage(lang.Language);
                 Console.WriteLine($"Success Message:{successMessage}");
-                State.LanguagesToCleanUp.Add(lang.Language);
+                State.LanguagesCleanUp.Add(lang.Language);
             }
 
             State.Test.Log(Status.Info, "Enter the language and level for delete using existing language");
@@ -369,7 +369,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 _languagesComponent.AddNewLanguageAndLevel(lang.Language, lang.LanguageLevel);
                 var successMessage = _languagesComponent.GetSuccessMessageForAddNewLanguage(lang.Language);
                 Console.WriteLine($"Success Message:{successMessage}");
-                State.LanguagesToCleanUp.Add(lang.Language);
+                State.LanguagesCleanUp.Add(lang.Language);
             }
 
             State.Test.Log(Status.Info, "Enter the language and level for update using existing language");
@@ -408,7 +408,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 actualMessages.Add(message);
                 _languagesComponent.ClickCancelButton();
                 expectedMessages.Add(lang.Validation.ExpectedMessage);
-                //State.LanguagesToCleanUp.Add(lang.Language); //Add languages to clean up
+                //State.LanguagesCleanUp.Add(lang.Language); //Add languages to clean up
             }
 
             State.Assert.AssertListContainsAll(actualMessages, expectedMessages);
@@ -433,7 +433,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 _languagesComponent.AddNewLanguageAndLevel(lang.Language, lang.LanguageLevel);
                 var successMessage = _languagesComponent.GetSuccessMessageForAddNewLanguage(lang.Language);
                 Console.WriteLine($"Message:{successMessage}");
-                State.LanguagesToCleanUp.Add(lang.Language); //Add languages to clean up
+                State.LanguagesCleanUp.Add(lang.Language); //Add languages to clean up
             }
 
             State.Test.Log(Status.Info, "Enter the language and level for update using existing language");
@@ -476,7 +476,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 Console.WriteLine($"SuccessMessage:{successMessage}");
                 actualMessages.Add(successMessage);
                 expectedMessages.Add(lang.Validation.ExpectedMessage);
-                State.LanguagesToCleanUp.Add(lang.Language); //Add languages to clean up
+                State.LanguagesCleanUp.Add(lang.Language); //Add languages to clean up
             }
 
             State.Assert.AssertListContainsAll(actualMessages, expectedMessages);
@@ -516,7 +516,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 actualMessages.Add(message);
                 Console.WriteLine($"Error Message:{message}");
                 expectedMessages.Add(lang.Validation.ExpectedMessage);
-                State.LanguagesToCleanUp.Add(lang.LanguageToUpdate); //Add languages to clean up
+                State.LanguagesCleanUp.Add(lang.LanguageToUpdate); //Add languages to clean up
             }
 
             State.Assert.AssertListContainsAll(actualMessages, expectedMessages);
@@ -547,7 +547,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 if (string.Equals(messageType, "SUCCESS", StringComparison.OrdinalIgnoreCase))
                 {
                     // Positive row → add to cleanup, no message assertion
-                    State.LanguagesToCleanUp.Add(lang.Language);
+                    State.LanguagesCleanUp.Add(lang.Language);
                 }
                 else if (string.Equals(messageType, "ERROR", StringComparison.OrdinalIgnoreCase) &&
                          !string.IsNullOrWhiteSpace(messageText))
@@ -590,7 +590,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 if (string.Equals(messageType, "SUCCESS", StringComparison.OrdinalIgnoreCase))
                 {
                     // Positive row → add to cleanup, no message assertion
-                    State.LanguagesToCleanUp.Add(lang.Language);
+                    State.LanguagesCleanUp.Add(lang.Language);
                 }
                 else if (string.Equals(messageType, "ERROR", StringComparison.OrdinalIgnoreCase) &&
                          !string.IsNullOrWhiteSpace(messageText))

@@ -12,10 +12,9 @@ namespace MarsAdvancedTaskPart1.Framework.Helpers
             state.Test.Log(Status.Pass, $"Assertion Passed:  Expected: '{expected}', Actual:'{actual}'");
         }
 
-        public void ListsMatch(List<string> actualList, List<string?> expectedList)
+        public void ListsMatch(List<string> actualList, List<string?> expectedList)  
         {
-            CollectionAssert.AreEqual(expectedList, actualList,
-                $"Mismatch!\nExpected: {string.Join(", ", expectedList)}\nActual: {string.Join(", ", actualList)}");
+            CollectionAssert.AreEqual(expectedList, actualList,$"Mismatch!\nExpected: {string.Join(", ", expectedList)}\nActual: {string.Join(", ", actualList)}");
             state.Test.Log(Status.Pass, $"Assertion Passed: Actual list matches expected list.");
         }
 
@@ -117,6 +116,7 @@ namespace MarsAdvancedTaskPart1.Framework.Helpers
                     if (string.Equals(type, "Success", StringComparison.OrdinalIgnoreCase))
                     {
                         Assert.That(type, Is.EqualTo("success"), "Success message should have shown");
+                        Assert.That(text, Does.Contain(expected), $"Message contains {expected}, but not found");
                     }
                     else if (string.Equals(type, "Error", StringComparison.OrdinalIgnoreCase))
                     {
@@ -131,6 +131,12 @@ namespace MarsAdvancedTaskPart1.Framework.Helpers
         {
             Assert.That(actual, Is.Not.Null.And.Not.Empty, "The list is null or empty.");
         }
+
+        public   void AssertListHasUrlWith(List<string> urls, string part)
+        {
+            Assert.That(urls, Has.Some.Contains(part),$"Expected a URL containing '{part}', but got: {string.Join(", ", urls)}");
+        }
+
     }
 
 }

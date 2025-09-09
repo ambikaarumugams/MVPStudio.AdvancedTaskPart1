@@ -16,10 +16,9 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
             _notification = new NotificationComponent(State);
             State.Test.Log(Status.Info, "Click the notification and get the message");
-          
-           
+
             var actual =_notification.GetNotificationMessage();
-            Console.WriteLine(actual);
+            State.Test.Log(Status.Info,$"Message when we click notification tab: {actual}");
         }
     }
 }

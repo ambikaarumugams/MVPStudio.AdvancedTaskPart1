@@ -7,14 +7,14 @@ namespace MarsAdvancedTaskPart1.Framework.Helpers
     {
         public static IEnumerable<TestCaseData> ChangePasswordData()
         {
-            var data = JsonHelper.ReadJson<ChangePasswordModel>("TestData/ChangePasswordTestData.json");
-            yield return new TestCaseData(data).SetName($"ChangePasswordTest_{data.CurrentPassword}_{data.ExpectedMessage}");
+            var data = JsonHelper.ReadJson<ChangePasswordModel> ("TestData/ChangePasswordTestData.json");
+            yield return new TestCaseData(data);
         }
 
         public static IEnumerable<TestCaseData> AccountSettingsData()
         {
             var data = JsonHelper.ReadJson<AccountSettingsModel>("TestData/AccountSettingsTestData.json");
-            yield return new TestCaseData(data).SetName($"AccountSettingsTest_Name_{data.Name}_Password_{data.Password?.ExpectedMessage}");
+            yield return new TestCaseData(data);
         }
 
         public static IEnumerable<TestCaseData> ChatData()
@@ -110,7 +110,7 @@ namespace MarsAdvancedTaskPart1.Framework.Helpers
 
         public static IEnumerable<TestCaseData> UpdateHugeLanguageDestructiveTestData()
         {
-            var languageModel = JsonHelper.ReadJson<LanguageModel>("TestData/UpdateHugeData_DestructiveTestData.json");
+            var languageModel = JsonHelper.ReadJson<LanguageModel>("TestData/UpdateHugeLanguage_DestructiveTestData.json");
             yield return new TestCaseData(languageModel).SetCategory("language");
         }
 
@@ -605,11 +605,151 @@ namespace MarsAdvancedTaskPart1.Framework.Helpers
             yield return new TestCaseData(profileOverviewModel).SetCategory("profileOverview");
         }
 
-        public static IEnumerable<TestCaseData> ShareSkill_ValidInput()
+        //Share skill data provider methods
+        public static IEnumerable<TestCaseData> ShareSkill_UsingSkillExchangeValidInput()
         {
-            var shareSkillModel = JsonHelper.ReadJson<ShareSkillModel>("TestData/ShareSkill_ValidInput.json");
+            var shareSkillModel = JsonHelper.ReadJson<ShareSkillModel>("TestData/ShareSkill_UsingSkillExchangeValidInput.json");
             yield return new TestCaseData(shareSkillModel).SetCategory("shareSkill");
         }
+
+        public static IEnumerable<TestCaseData> ShareSkill_UsingCreditValidInput()
+        {
+            var shareSkillModel = JsonHelper.ReadJson<ShareSkillModel>("TestData/ShareSkill_UsingCreditValidInput.json");
+            yield return new TestCaseData(shareSkillModel).SetCategory("shareSkill");
+        }
+
+        public static IEnumerable<TestCaseData> ShareSkill_InvalidTitleSpecialCharacters()
+        {
+            var shareSkillModel = JsonHelper.ReadJson<ShareSkillModel>("TestData/ShareSkill_InvalidTitleSpecialCharacters.json");
+            yield return new TestCaseData(shareSkillModel).SetCategory("shareSkill");
+        }
+
+        public static IEnumerable<TestCaseData> ShareSkill_InvalidTitleStartsWithNumbers()
+        {
+            var shareSkillModel = JsonHelper.ReadJson<ShareSkillModel>("TestData/ShareSkill_InvalidTitleStringStartsWithNumbers.json");
+            yield return new TestCaseData(shareSkillModel).SetCategory("shareSkill");
+        }
+
+        public static IEnumerable<TestCaseData> ShareSkill_InvalidTitleRandomStrings()
+        {
+            var shareSkillModel = JsonHelper.ReadJson<ShareSkillModel>("TestData/ShareSkill_InvalidTitleRandomStrings.json");
+            yield return new TestCaseData(shareSkillModel).SetCategory("shareSkill");
+        }
+
+        public static IEnumerable<TestCaseData> ShareSkill_InvalidTitleFirstCharacterWhiteSpace()
+        {
+            var shareSkillModel = JsonHelper.ReadJson<ShareSkillModel>("TestData/ShareSkill_InvalidTitleFirstCharacterWhiteSpace.json");
+            yield return new TestCaseData(shareSkillModel).SetCategory("shareSkill");
+        }
+
+        public static IEnumerable<TestCaseData> ShareSkill_BoundaryTestingForTitleMoreThan100Characters()
+        {
+            var shareSkillModel = JsonHelper.ReadJson<ShareSkillModel>("TestData/ShareSkill_BoundaryCheckForTitleMoreThan100Characters.json");
+            yield return new TestCaseData(shareSkillModel).SetCategory("shareSkill");
+        }
+
+        public static IEnumerable<TestCaseData> ShareSkill_BoundaryTestingForTitle100Characters()
+        {
+            var shareSkillModel = JsonHelper.ReadJson<ShareSkillModel>("TestData/ShareSkill_BoundaryCheckForTitle100Charcters.json");
+            yield return new TestCaseData(shareSkillModel).SetCategory("shareSkill");
+        }
+
+        public static IEnumerable<TestCaseData> ShareSkill_BoundaryTestingForTitleLessThan100Characters()
+        {
+            var shareSkillModel = JsonHelper.ReadJson<ShareSkillModel>("TestData/ShareSkill_BoundaryCheckForTitleLessThan100Characters.json");
+            yield return new TestCaseData(shareSkillModel).SetCategory("shareSkill");
+        }
+
+        public static IEnumerable<TestCaseData> ShareSkill_InvalidDescriptionWithSpecialCharacters()
+        {
+            var shareSkillModel = JsonHelper.ReadJson<ShareSkillModel>("TestData/ShareSkill_InvalidDescriptionWithSpecialCharacters.json");
+            yield return new TestCaseData(shareSkillModel).SetCategory("shareSkill");
+        }
+
+        public static IEnumerable<TestCaseData> ShareSkill_InvalidDescriptionWithNumbers()
+        {
+            var shareSkillModel = JsonHelper.ReadJson<ShareSkillModel>("TestData/ShareSkill_InvalidDescriptionWithNumbers.json");
+            yield return new TestCaseData(shareSkillModel).SetCategory("shareSkill");
+        }
+
+        public static IEnumerable<TestCaseData> ShareSkill_InvalidDescriptionWithRandomStrings()
+        {
+            var shareSkillModel = JsonHelper.ReadJson<ShareSkillModel>("TestData/ShareSkill_InvalidDescriptionWithRandomStrings.json");
+            yield return new TestCaseData(shareSkillModel).SetCategory("shareSkill");
+        }
+
+        public static IEnumerable<TestCaseData> ShareSkill_InvalidDescriptionStartsWithNumbers()
+        {
+            var shareSkillModel = JsonHelper.ReadJson<ShareSkillModel>("TestData/ShareSkill_InvalidDescriptionStringStartsWithNumbers.json");
+            yield return new TestCaseData(shareSkillModel).SetCategory("shareSkill");
+        }
+
+        public static IEnumerable<TestCaseData> ShareSkill_InvalidDescriptionFirstCharacterWhiteSpace()
+        {
+            var shareSkillModel = JsonHelper.ReadJson<ShareSkillModel>("TestData/ShareSkill_InvalidDescriptionFirstCharacterWhiteSpace.json");
+            yield return new TestCaseData(shareSkillModel).SetCategory("shareSkill");
+        }
+
+        public static IEnumerable<TestCaseData> ShareSkill_BoundaryTestingForDescriptionMoreThan600Characters()
+        {
+            var shareSkillModel = JsonHelper.ReadJson<ShareSkillModel>("TestData/ShareSkill_BoundaryCheckForDescriptionMoreThan600Characters.json");
+            yield return new TestCaseData(shareSkillModel).SetCategory("shareSkill");
+        }
+
+        public static IEnumerable<TestCaseData> ShareSkill_BoundaryTestingForDescription600Characters()
+        {
+            var shareSkillModel = JsonHelper.ReadJson<ShareSkillModel>("TestData/ShareSkill_BoundaryCheckForDescription600Characters.json");
+            yield return new TestCaseData(shareSkillModel).SetCategory("shareSkill");
+        }
+
+        public static IEnumerable<TestCaseData> ShareSkill_BoundaryTestingForDescriptionLessThan600Characters()
+        {
+            var shareSkillModel = JsonHelper.ReadJson<ShareSkillModel>("TestData/ShareSkill_BoundaryCheckForDescriptionLessThan600Characters.json");
+            yield return new TestCaseData(shareSkillModel).SetCategory("shareSkill");
+        }
+
+        public static IEnumerable<TestCaseData> ShareSkill_InvalidTags()
+        {
+            var shareSkillModel = JsonHelper.ReadJson<ShareSkillModel>("TestData/ShareSkill_InvalidTags.json");
+            yield return new TestCaseData(shareSkillModel).SetCategory("shareSkill");
+        }
+
+        public static IEnumerable<TestCaseData> ShareSkill_ServiceLocationType()
+        {
+            var shareSkillModel = JsonHelper.ReadJson<ShareSkillModel>("TestData/ShareSkill_ServiceLocationType.json");
+            yield return new TestCaseData(shareSkillModel).SetCategory("shareSkill");
+        }
+
+        public static IEnumerable<TestCaseData> ShareSkill_AddEvents()
+        {
+            var shareSkillModel = JsonHelper.ReadJson<ShareSkillModel>("TestData/ShareSkill_AddEvents.json");
+            yield return new TestCaseData(shareSkillModel).SetCategory("shareSkill");
+        }
+
+        public static IEnumerable<TestCaseData> ShareSkill_LeaveEitherOneOrAllTheRequiredFieldsAreEmpty()
+        {
+            var shareSkillModel = JsonHelper.ReadJson<ShareSkillModel>("TestData/ShareSkill_LeaveEitherOneOrAllTheRequiredFieldsAreEmpty.json");
+            yield return new TestCaseData(shareSkillModel).SetCategory("shareSkill");
+        }
+
+        public static IEnumerable<TestCaseData> ShareSkill_InvalidSkillExchangeTags()
+        {
+            var shareSkillModel = JsonHelper.ReadJson<ShareSkillModel>("TestData/ShareSkill_InvalidSkillExchangeTags.json");
+            yield return new TestCaseData(shareSkillModel).SetCategory("shareSkill");
+        }
+
+        public static IEnumerable<TestCaseData> ShareSkill_WorkSamples()
+        {
+            var shareSkillModel = JsonHelper.ReadJson<ShareSkillModel>("TestData/ShareSkill_WorkSamples.json");
+            yield return new TestCaseData(shareSkillModel).SetCategory("shareSkill");
+        }
+
+        public static IEnumerable<TestCaseData> ShareSkill_EventDetailsDaily()
+        {
+           var eventModel = JsonHelper.ReadJson<EventModel>("TestData/ShareSkill_EventDetailsForDaily.json");
+            yield return new TestCaseData(eventModel).SetCategory("shareSkill");
+        }
+
     }
 }
 

@@ -11,6 +11,8 @@ namespace MarsAdvancedTaskPart1.Test.Tests
         [Test]
         public void SelectCategoriesFooterTab()
         {
+            var actualMessages = new List<string>();
+            var expectedMessages = new List<string>();
             State.Test.Log(Status.Info, "Starting Categories footer test...");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
@@ -21,24 +23,35 @@ namespace MarsAdvancedTaskPart1.Test.Tests
 
             var categories = new Dictionary<Action, string>
             {
-                { ()=>_categoriesComponent.ClickGraphicsDesignLink(),"Graphics Design"},
-                { ()=>_categoriesComponent.ClickDigitalMarketingLink(),"Digital Marketing"},
-                { ()=> _categoriesComponent.ClickWritingAndTranslationLink(),"Writing & Translation"},
-                { ()=>_categoriesComponent.ClickVideoAndAnimationLink(),"Video & Animation"},
-                { ()=>_categoriesComponent.ClickMusicAndAudioLink(),"Music & Audio" },
-                { ()=>_categoriesComponent.ClickProgrammingTechLink(),"Programming Tech" },
+                { ()=>_categoriesComponent.ClickGraphicsDesignLink(),"GraphicsDesign"},
+                { ()=>_categoriesComponent.ClickDigitalMarketingLink(),"DigitalMarketing"},
+                { ()=> _categoriesComponent.ClickWritingAndTranslationLink(),"Writing&Translation"},
+                { ()=>_categoriesComponent.ClickVideoAndAnimationLink(),"Video&Animation"},
+                { ()=>_categoriesComponent.ClickMusicAndAudioLink(),"Music&Audio" },
+                { ()=>_categoriesComponent.ClickProgrammingTechLink(),"ProgrammingTech" },
                 { ()=>_categoriesComponent.ClickBusinessLink(),"Business" },
-                { ()=>_categoriesComponent.ClickFunAndLifestyleLink(),"Fun & Lifestyle"},
-                {()=>_categoriesComponent.ClickSiteMapLink(),"Site Map"}
+                { ()=>_categoriesComponent.ClickFunAndLifestyleLink(),"Fun&Lifestyle"},
+                {()=>_categoriesComponent.ClickSiteMapLink(),"SiteMap"}
             };
 
             foreach (var category in categories)
             {
                 category.Key.Invoke();
-                State.Test.Log(Status.Info, $"Clicked on {category.Value} link. It shows loading....");
+                var result = _categoriesComponent.GetTextOfCategories();
+                State.Test.Log(Status.Info, $"Clicked on {category.Value} link.It shows {result}..");
+                string actualUrl = State.Driver.Url; // get current URL
+                actualMessages.Add(actualUrl);
+                expectedMessages.Add(category.Value);
             }
-            var actual = _categoriesComponent.IsCategoriesVisible();
-            State.Assert.IsTrueBool(actual);
+
+            Assert.Multiple(() =>
+            {
+                foreach (var expected in expectedMessages)
+                {
+                    State.Assert.AssertAllMessagesContain(actualMessages, expected);
+                    //State.Assert.AssertListHasUrlWith(actualMessages, "/Sitemap");
+                }
+            });
         }
     }
 }

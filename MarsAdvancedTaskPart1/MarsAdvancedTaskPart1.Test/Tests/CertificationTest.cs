@@ -32,7 +32,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 Console.WriteLine($"successMessage:{successMessage}");
                 actualMessages.Add(successMessage);
                 expectedMessages.Add(certificationDetailsToAdd.ExpectedMessage);
-                State.CertificationToCleanUp.Add(certificationDetailsToAdd.CertificateOrAward);
+                State.CertificationCleanUp.Add(certificationDetailsToAdd.CertificateOrAward);
             }
 
             State.Assert.ListsMatch(actualMessages, expectedMessages);
@@ -59,7 +59,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 Console.WriteLine($"Message:{successMessage}");
                 actualMessages.Add(successMessage);
                 expectedMessages.Add(certificationDetailsToAdd.ExpectedMessage);
-                State.CertificationToCleanUp.Add(certificationDetailsToAdd.CertificateOrAward);
+                State.CertificationCleanUp.Add(certificationDetailsToAdd.CertificateOrAward);
             }
 
             State.Assert.ListsMatch(actualMessages, expectedMessages);
@@ -86,7 +86,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 Console.WriteLine($"Message:{successMessage}");
                 actualMessages.Add(successMessage);
                 expectedMessages.Add(certificationDetailsToAdd.ExpectedMessage);
-                State.CertificationToCleanUp.Add(certificationDetailsToAdd.CertificateOrAward);
+                State.CertificationCleanUp.Add(certificationDetailsToAdd.CertificateOrAward);
             }
 
             State.Assert.ListsMatch(actualMessages, expectedMessages);
@@ -113,7 +113,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 Console.WriteLine($"Message:{actualMessage}");
                 actualMessages.Add(actualMessage);
                 expectedMessages.Add(certificationDetailsToAdd.ExpectedMessage);
-                State.CertificationToCleanUp.Add(certificationDetailsToAdd.CertificateOrAward);
+                State.CertificationCleanUp.Add(certificationDetailsToAdd.CertificateOrAward);
             }
 
             foreach (var expected in expectedMessages)
@@ -177,7 +177,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 Console.WriteLine($"Message:{actualMessage}");
                 actualMessages.Add(actualMessage);
                 expectedMessages.Add(certificationDetailsToAdd.ExpectedMessage);
-                State.CertificationToCleanUp.Add(certificationDetailsToAdd.CertificateOrAward);
+                State.CertificationCleanUp.Add(certificationDetailsToAdd.CertificateOrAward);
             }
 
             foreach (var expected in expectedMessages)
@@ -212,7 +212,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 Console.WriteLine($"Message:{actualMessage}");
                 actualMessages.Add(actualMessage);
                 expectedMessages.Add(certificationDetailsToAdd.ExpectedMessage);
-                State.CertificationToCleanUp.Add(certificationDetailsToAdd.CertificateOrAward);
+                State.CertificationCleanUp.Add(certificationDetailsToAdd.CertificateOrAward);
             }
 
             foreach (var expected in expectedMessages)
@@ -273,7 +273,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
 
                 if (string.Equals(messageType, "Success", StringComparison.OrdinalIgnoreCase))
                 {
-                    State.CertificationToCleanUp.Add(certificationDetailsToAdd.CertificateOrAward);
+                    State.CertificationCleanUp.Add(certificationDetailsToAdd.CertificateOrAward);
                 }
                 else if (string.Equals(messageType, "Error", StringComparison.OrdinalIgnoreCase))
                 {
@@ -338,7 +338,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 Console.WriteLine($"successMessage:{successMessage}");
                 actualMessages.Add(successMessage);
                 expectedMessages.Add(certificationDetailsToAdd.ExpectedMessage);
-                State.CertificationToCleanUp.Add(certificationDetailsToAdd.CertificateOrAward);
+                State.CertificationCleanUp.Add(certificationDetailsToAdd.CertificateOrAward);
             }
 
             State.Assert.ListsMatch(actualMessages, expectedMessages);
@@ -378,7 +378,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                     _certificationComponent.GetSuccessMessageForUpdate(detailsToUpdate.CertificateOrAward);
                 actualMessages.Add(successMessage);
                 expectedMessages.Add(detailsToUpdate.ExpectedMessage);
-                State.CertificationToCleanUp.Add(detailsToUpdate.CertificateOrAward);
+                State.CertificationCleanUp.Add(detailsToUpdate.CertificateOrAward);
             }
 
             State.Assert.ListsMatch(actualMessages, expectedMessages);
@@ -416,7 +416,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 var successMessage = _certificationComponent.GetSuccessMessageForUpdate(detailsToUpdate.CertificateOrAward);
                 actualMessages.Add(successMessage);
                 expectedMessages.Add(detailsToUpdate.ExpectedMessage);
-                State.CertificationToCleanUp.Add(detailsToUpdate.CertificateOrAward);
+                State.CertificationCleanUp.Add(detailsToUpdate.CertificateOrAward);
             }
 
             State.Assert.ListsMatch(actualMessages, expectedMessages);
@@ -455,7 +455,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                     _certificationComponent.GetSuccessMessageForUpdate(detailsToUpdate.CertificateOrAward);
                 actualMessages.Add(successMessage);
                 expectedMessages.Add(detailsToUpdate.ExpectedMessage);
-                State.CertificationToCleanUp.Add(detailsToUpdate.CertificateOrAward);
+                State.CertificationCleanUp.Add(detailsToUpdate.CertificateOrAward);
             }
 
             State.Assert.ListsMatch(actualMessages, expectedMessages);
@@ -483,7 +483,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                     certificationDetailsToAdd.CertifiedFrom, certificationDetailsToAdd.Year);
                 var successMessage = _certificationComponent.GetSuccessMessage();
                 Console.WriteLine($"successMessage:{successMessage}");
-                State.CertificationToCleanUp.Add(certificationDetailsToAdd.CertificateOrAward);
+                State.CertificationCleanUp.Add(certificationDetailsToAdd.CertificateOrAward);
             }
 
             State.Test.Log(Status.Info, "Enter the certification details to update ...");
@@ -534,7 +534,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 var message = _certificationComponent.GetSuccessMessageForUpdate(detailsToUpdate.CertificateOrAward);
                 actualMessages.Add(message);
                 expectedMessages.Add(detailsToUpdate.ExpectedMessage);
-                State.CertificationToCleanUp.Add(detailsToUpdate.CertificateOrAward);
+                State.CertificationCleanUp.Add(detailsToUpdate.CertificateOrAward);
             }
 
             State.Assert.ListsMatch(actualMessages, expectedMessages);
@@ -577,7 +577,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 var message = _certificationComponent.GetSuccessMessageForUpdate(detailsToUpdate.CertificateOrAward);
                 actualMessages.Add(message);
                 expectedMessages.Add(detailsToUpdate.ExpectedMessage);
-                State.CertificationToCleanUp.Add(detailsToUpdate.CertificateOrAward);
+                State.CertificationCleanUp.Add(detailsToUpdate.CertificateOrAward);
             }
 
             foreach (var expected in expectedMessages)
@@ -622,7 +622,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 _certificationComponent.ClickSignOutButton();
                 State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
                 _certificationComponent.NavigateToTheProfilePage();
-                State.CertificationToCleanUp.Add(existingDetails.CertificateOrAward);
+                State.CertificationCleanUp.Add(existingDetails.CertificateOrAward);
             }
 
             foreach (var expected in expectedMessages)
@@ -665,7 +665,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
 
                 if (string.Equals(messageType, "Success", StringComparison.OrdinalIgnoreCase))
                 {
-                    State.CertificationToCleanUp.Add(existingDetails.CertificateOrAward);
+                    State.CertificationCleanUp.Add(existingDetails.CertificateOrAward);
                 }
                 else if (string.Equals(messageType, "Error", StringComparison.OrdinalIgnoreCase))
                 {
@@ -715,7 +715,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 var message = _certificationComponent.GetSuccessMessage();
                 actualMessages.Add(message);
                 expectedMessages.Add(detailsToUpdate.ExpectedMessage);
-                State.CertificationToCleanUp.Add(detailsToUpdate.CertificateOrAward);
+                State.CertificationCleanUp.Add(detailsToUpdate.CertificateOrAward);
             }
 
             foreach (var expected in expectedMessages)
@@ -761,7 +761,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 var message = _certificationComponent.GetSuccessMessage();
                 actualMessages.Add(message);
                 expectedMessages.Add(detailsToUpdate.ExpectedMessage);
-                State.CertificationToCleanUp.Add(detailsToUpdate.CertificateOrAward);
+                State.CertificationCleanUp.Add(detailsToUpdate.CertificateOrAward);
             }
 
             foreach (var expected in expectedMessages)
@@ -802,7 +802,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                     detailsToUpdate.CertificateOrAward, detailsToUpdate.CertifiedFrom, detailsToUpdate.Year);
                 actualMessages.Add(existingDetails.CertificateOrAward);
                 expectedMessages.Add(detailsToUpdate.CertificateOrAward);
-                State.CertificationToCleanUp.Add(existingDetails.CertificateOrAward);
+                State.CertificationCleanUp.Add(existingDetails.CertificateOrAward);
             }
 
             foreach (var expected in expectedMessages)
@@ -870,7 +870,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                     certificationDetailsToAdd.CertifiedFrom, certificationDetailsToAdd.Year);
                 var successMessage = _certificationComponent.GetSuccessMessage();
                 Console.WriteLine($"successMessage:{successMessage}");
-                State.CertificationToCleanUp.Add(certificationDetailsToAdd.CertificateOrAward);
+                State.CertificationCleanUp.Add(certificationDetailsToAdd.CertificateOrAward);
             }
 
             State.Test.Log(Status.Info, "Enter the certification details to delete ...");

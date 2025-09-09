@@ -16,12 +16,9 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components.AccountMenuComponent
         private readonly By _welcomeMessageElement = By.XPath("//span[contains(@class, 'dropdown') and contains(normalize-space(), 'Ambika')]");
         private readonly By _accountSettingsElement = By.XPath("//a[normalize-space()='Account Settings']");
         private readonly By _accountTabElement= By.XPath("//a[normalize-space()='Account']");
-       // private readonly By _editNameIconElement = By.XPath("//i[@class='grey pencil icon']");
-
         private readonly By _nameTextBoxElement = By.XPath("//input[@type='text' and @id='Name']");
         private readonly By _saveNameButtonElement = By.XPath("//button[normalize-space()='Save']");
         private readonly By _cancelNameButtonElement = By.XPath("//button[normalize-space()='Cancel']");
-        //private readonly By _editPasswordIconElement = By.XPath("//i[@class='grey pencil icon'][1]");
         private readonly By _passwordTextBoxElement = By.XPath("//input[@id='Password']");
         private readonly By _currentPasswordElement = By.XPath("//input[@placeholder='Current Password']");
         private readonly By _newPasswordElement = By.XPath("//input[@placeholder='New Password']");
@@ -54,34 +51,51 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components.AccountMenuComponent
 
         public void EditName(string name)
         {
-            _state.Wait.WaitUntilElementToBeClickable(_nameTextBoxElement).Click();
-            _state.Wait.WaitUntilElementToBeClickable(_nameTextBoxElement).Clear();
-            _state.Wait.WaitUntilElementIsVisible(_nameTextBoxElement).SendKeys(name);
+            var enterName = _state.Wait.WaitUntilElementToBeClickable(_nameTextBoxElement);
+            enterName.Click();
+            enterName.Clear();
+            enterName.SendKeys(name);
             _state.Wait.WaitUntilElementToBeClickable(_saveNameButtonElement).Click();
         }
 
         public void CancelEditName(string name)
         {
-            _state.Wait.WaitUntilElementToBeClickable(_nameTextBoxElement).Click();
-            _state.Wait.WaitUntilElementIsVisible(_nameTextBoxElement).SendKeys(name);
+            var enterName = _state.Wait.WaitUntilElementToBeClickable(_nameTextBoxElement);
+            enterName.Click();
+            enterName.Clear();
+            enterName.SendKeys(name);
             _state.Wait.WaitUntilElementToBeClickable(_cancelNameButtonElement).Click();
         }
 
         public void EditPassword(string currentPassword, string newPassword, string confirmPassword)
         {
-            _state.Wait.WaitUntilElementToBeClickable(_passwordTextBoxElement).Click();
-            _state.Wait.WaitUntilElementToBeClickable(_currentPasswordElement).SendKeys(currentPassword);
-            _state.Wait.WaitUntilElementToBeClickable(_newPasswordElement).SendKeys(newPassword);
-            _state.Wait.WaitUntilElementToBeClickable(_confirmPasswordElement).SendKeys(confirmPassword);
+            var pass = _state.Wait.WaitUntilElementToBeClickable(_passwordTextBoxElement);
+            pass.Click();
+            var current = _state.Wait.WaitUntilElementToBeClickable(_currentPasswordElement);
+            current.Clear();
+            current.SendKeys(currentPassword);
+            var newOne = _state.Wait.WaitUntilElementToBeClickable(_newPasswordElement);
+            newOne.Clear();
+            newOne.SendKeys(newPassword);
+            var confirmNewOne = _state.Wait.WaitUntilElementToBeClickable(_confirmPasswordElement);
+            confirmNewOne.Clear();
+            confirmNewOne.SendKeys(confirmPassword);
             _state.Wait.WaitUntilElementToBeClickable(_savePasswordButtonElement).Click();
         }
 
         public void CancelEditPassword(string currentPassword, string newPassword, string confirmPassword)
         {
-            _state.Wait.WaitUntilElementToBeClickable(_passwordTextBoxElement).Click();
-            _state.Wait.WaitUntilElementToBeClickable(_currentPasswordElement).SendKeys(currentPassword);
-            _state.Wait.WaitUntilElementToBeClickable(_newPasswordElement).SendKeys(newPassword);
-            _state.Wait.WaitUntilElementToBeClickable(_confirmPasswordElement).SendKeys(confirmPassword);
+            var pass = _state.Wait.WaitUntilElementToBeClickable(_passwordTextBoxElement);
+            pass.Click();
+            var current = _state.Wait.WaitUntilElementToBeClickable(_currentPasswordElement);
+            current.Clear();
+            current.SendKeys(currentPassword);
+            var newOne = _state.Wait.WaitUntilElementToBeClickable(_newPasswordElement);
+            newOne.Clear();
+            newOne.SendKeys(newPassword);
+            var confirmNewOne = _state.Wait.WaitUntilElementToBeClickable(_confirmPasswordElement);
+            confirmNewOne.Clear();
+            confirmNewOne.SendKeys(confirmPassword);
             _state.Wait.WaitUntilElementToBeClickable(_cancelPasswordButtonElement).Click();
         }
 
@@ -129,7 +143,6 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components.AccountMenuComponent
 
         public string GetNameAfterCancel()
         {
-
             var name = _state.Wait.WaitUntilElementIsVisible(_nameTextBoxElement).GetAttribute("value");
             return name;
         }
@@ -139,7 +152,7 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components.AccountMenuComponent
             ClickWelcomeMessageLink();
             ClickAccountSettingsLink();
             ClickAccountTab();
-            EditPassword( currentPassword,  newPassword,  confirmPassword);
+            EditPassword(currentPassword, newPassword, confirmPassword);
         }
 
         public void CancelAccountPasswordEdit(string currentPassword, string newPassword, string confirmPassword)
@@ -155,6 +168,7 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components.AccountMenuComponent
             var password = _state.Wait.WaitUntilElementIsVisible(_passwordTextBoxElement).GetAttribute("value");
             return password;
         }
+
         public string GetSuccessMessage()
         {
             var successMessage = _state.Wait.WaitUntilElementIsVisible(_successMessage).Text;

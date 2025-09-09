@@ -16,6 +16,8 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components.NavigationMenuCompone
         private readonly By _manageRequestsTab = By.XPath("//div[@class='ui dropdown link item']");
         private readonly By _receivedRequestsLink = By.XPath("//a[normalize-space()='Received Requests']");
         private readonly By _sendRequestsLink = By.XPath("//a[normalize-space()='Sent Requests']");
+        private readonly By _resultOfClickReceivedRequestsLink = By.XPath("//h3[normalize-space()='You do not have any received requests!']");
+        private readonly By _resultOfClickSentRequestsLink = By.XPath("//h3[normalize-space()='You do not have any sent requests!']");
 
         //Action Methods
         public void ClickManageRequestsTab()
@@ -48,6 +50,19 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components.NavigationMenuCompone
             var sendRequestsElement = _state.Wait.WaitUntilElementToBeClickable(_sendRequestsLink);
             var hrefValue = sendRequestsElement.GetAttribute("href");
             return hrefValue;
+        }
+
+        public string GetTextReceivedRequest()
+        {
+            var receivedRequestElement=_state.Wait.WaitUntilElementToBeClickable(_resultOfClickReceivedRequestsLink);
+            return receivedRequestElement.Text;
+        }
+
+        public string GetTextSentRequest()
+        {
+            var sentRequestElement = _state.Wait.WaitUntilElementToBeClickable(_resultOfClickSentRequestsLink);
+            return sentRequestElement.Text;
+
         }
     }
 }

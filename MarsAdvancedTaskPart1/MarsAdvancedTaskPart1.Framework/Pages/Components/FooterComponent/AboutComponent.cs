@@ -1,10 +1,5 @@
 ﻿using MarsAdvancedTaskPart1.Framework.Helpers;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MarsAdvancedTaskPart1.Framework.Pages.Components.FooterComponent
 {
@@ -68,6 +63,5 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components.FooterComponent
             var termsAndServicesLinkElement = _state.Wait.WaitUntilElementToBeClickable(_termsAndServiceLink);
             termsAndServicesLinkElement.Click();
         }
-
     }
 }

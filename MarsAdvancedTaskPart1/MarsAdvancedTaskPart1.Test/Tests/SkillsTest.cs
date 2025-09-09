@@ -30,7 +30,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 Console.WriteLine($"SuccessMessage:{successMessage}");
                 actualMessages.Add(successMessage);
                 expectedMessages.Add(skill.Skill);
-                State.SkillsToCleanUp.Add(skill.Skill); //Add skills to clean up
+                State.SkillsCleanUp.Add(skill.Skill); //Add skills to clean up
             }
             foreach (var expected in expectedMessages)
             {
@@ -66,7 +66,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 Console.WriteLine($"SuccessMessage:{successMessage}");
                 actualMessages.Add(successMessage);
                 expectedMessages.Add(skill.SkillToUpdate);
-                State.SkillsToCleanUp.Add(skill.SkillToUpdate);
+                State.SkillsCleanUp.Add(skill.SkillToUpdate);
             }
 
             foreach (var expected in expectedMessages)
@@ -140,7 +140,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             Console.WriteLine($"Success Message:{updateSuccessMessage}");
             actualMessages.Add(updateSuccessMessage);
             expectedMessages.Add(update);
-            State.SkillsToCleanUp.Add(update);
+            State.SkillsCleanUp.Add(update);
 
             var actualMessage = actualMessages.FirstOrDefault();
             var expectedMessage = expectedMessages.FirstOrDefault();
@@ -197,7 +197,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 _skillsComponent.AddSkillAndLevel(skill.Skill, skill.SkillLevel);
                 var successMessage = _skillsComponent.GetSuccessMessageForAddSkill(skill.Skill);
                 Console.WriteLine($"Success Message:{successMessage}");
-                State.SkillsToCleanUp.Add(skill.Skill);
+                State.SkillsCleanUp.Add(skill.Skill);
             }
 
             State.Test.Log(Status.Info, "Enter the skill and level for update when session expired");
@@ -239,7 +239,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 _skillsComponent.AddSkillAndLevel(skill.Skill, skill.SkillLevel);
                 var successMessage = _skillsComponent.GetSuccessMessageForAddSkill(skill.Skill);
                 Console.WriteLine($"Success Message:{successMessage}");
-                State.SkillsToCleanUp.Add(skill.Skill);
+                State.SkillsCleanUp.Add(skill.Skill);
             }
 
             State.Test.Log(Status.Info, "Enter the skill and level for delete using existing skill");
@@ -301,7 +301,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 _skillsComponent.AddSkillAndLevel(skill.Skill, skill.SkillLevel);
                 var successMessage = _skillsComponent.GetSuccessMessageForAddSkill(skill.Skill);
                 Console.WriteLine($"Success Message:{successMessage}");
-                State.SkillsToCleanUp.Add(skill.Skill);
+                State.SkillsCleanUp.Add(skill.Skill);
             }
 
             State.Test.Log(Status.Info, "Enter the skill and level for update using existing skill");
@@ -339,7 +339,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 actualMessages.Add(message);
                 _skillsComponent.ClickCancelButton();
                 expectedMessages.Add(skill.SkillValidation.SkillExpectedMessage);
-                //State.skillsToCleanUp.Add(lang.skill); //Add skills to clean up
+                //State.skillsCleanUp.Add(lang.skill); //Add skills to clean up
             }
 
             State.Assert.AssertListContainsAll(actualMessages, expectedMessages);
@@ -363,7 +363,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 _skillsComponent.AddSkillAndLevel(skill.Skill, skill.SkillLevel);
                 var successMessage = _skillsComponent.GetSuccessMessageForAddSkill(skill.Skill);
                 Console.WriteLine($"Message:{successMessage}");
-                State.SkillsToCleanUp.Add(skill.Skill); //Add skills to clean up
+                State.SkillsCleanUp.Add(skill.Skill); //Add skills to clean up
             }
 
             State.Test.Log(Status.Info, "Enter the skill and level for update using existing skill");
@@ -400,7 +400,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 Console.WriteLine($"Message:{successMessage}");
                 actualMessages.Add(successMessage);
                 expectedMessages.Add(skill.SkillValidation.SkillExpectedMessage);
-                State.SkillsToCleanUp.Add(skill.Skill); //Add skills to clean up
+                State.SkillsCleanUp.Add(skill.Skill); //Add skills to clean up
             }
 
             foreach (string? expected in expectedMessages)
@@ -438,7 +438,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 Console.WriteLine($"Message:{message}");
                 actualMessages.Add(message);
                 expectedMessages.Add(skill.SkillToUpdate);
-                State.SkillsToCleanUp.Add(skill.SkillToUpdate);
+                State.SkillsCleanUp.Add(skill.SkillToUpdate);
             }
 
             foreach (var expected in expectedMessages)
@@ -472,7 +472,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 Console.WriteLine($"SuccessMessage:{successMessage}");
                 actualMessages.Add(successMessage);
                 expectedMessages.Add(skill.SkillValidation.SkillExpectedMessage);
-                State.SkillsToCleanUp.Add(skill.Skill); //Add skills to clean up
+                State.SkillsCleanUp.Add(skill.Skill); //Add skills to clean up
             }
 
             State.Assert.AssertListContainsAll(actualMessages, expectedMessages);
@@ -503,7 +503,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 Console.WriteLine($"SuccessMessage:{successMessage}");
                 actualMessages.Add(successMessage);
                 expectedMessages.Add(skill.SkillValidation.SkillExpectedMessage);
-                State.SkillsToCleanUp.Add(skill.Skill); //Add skills to clean up
+                State.SkillsCleanUp.Add(skill.Skill); //Add skills to clean up
             }
 
             State.Assert.AssertListContainsAll(actualMessages, expectedMessages);
@@ -542,7 +542,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 actualMessages.Add(message);
                 Console.WriteLine($"Error Message:{message}");
                 expectedMessages.Add(skill.SkillValidation.SkillExpectedMessage);
-                State.SkillsToCleanUp.Add(skill.SkillToUpdate); //Add skills to clean up
+                State.SkillsCleanUp.Add(skill.SkillToUpdate); //Add skills to clean up
             }
 
             State.Assert.AssertListContainsAll(actualMessages, expectedMessages);
@@ -571,7 +571,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 actualMessages.Add((messageText, messageType));
                 if (string.Equals(messageType, "SUCCESS", StringComparison.OrdinalIgnoreCase))
                 {
-                    State.SkillsToCleanUp.Add(skill.Skill);
+                    State.SkillsCleanUp.Add(skill.Skill);
                 }
                 else if (string.Equals(messageType, "ERROR", StringComparison.OrdinalIgnoreCase) &&
                          !string.IsNullOrWhiteSpace(messageText))
@@ -611,7 +611,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 actualMessages.Add((messageText, messageType));
                 if (string.Equals(messageType, "SUCCESS", StringComparison.OrdinalIgnoreCase))
                 {
-                    State.SkillsToCleanUp.Add(skill.Skill);
+                    State.SkillsCleanUp.Add(skill.Skill);
                 }
                 else if (string.Equals(messageType, "ERROR", StringComparison.OrdinalIgnoreCase) &&
                          !string.IsNullOrWhiteSpace(messageText))

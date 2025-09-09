@@ -13,13 +13,13 @@ namespace MarsAdvancedTaskPart1.Test.Tests
         [Test,TestCaseSource(typeof(TestDataProvider),nameof(TestDataProvider.AccountSettingsData))]
         public void AccountSettings_EditName(AccountSettingsModel accountSettings)
         {
-            State.Test.Log(Status.Info, "Starting AccountSettings Test");
+            State.Test.Log(Status.Info, "Starting Account settings  edit account name..");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
 
             _accountSettings = new AccountSettingsComponent(State);
             //Name update
-            State.Test.Log(Status.Info, "Enter the username to edit");
+            State.Test.Log(Status.Info, "Enter the username to edit...");
             _accountSettings.EditAccountName(accountSettings.Name);
 
             var actual = _accountSettings.GetName();
@@ -30,14 +30,14 @@ namespace MarsAdvancedTaskPart1.Test.Tests
         [Test, TestCaseSource(typeof(TestDataProvider), nameof(TestDataProvider.AccountSettingsData))]
         public void AccountSettings_EditPassword(AccountSettingsModel accountSettings)
         {
-            State.Test.Log(Status.Info, "Starting AccountTestings Test");
+            State.Test.Log(Status.Info, "Starting Account settings - save edit account password.... ");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
 
             _accountSettings = new AccountSettingsComponent(State);
            
             //Password update
-            State.Test.Log(Status.Info, "Enter password details");
+            State.Test.Log(Status.Info, "Enter password details....");
             _accountSettings.EditAccountPassword(accountSettings.Password.CurrentPassword,
                 accountSettings.Password.NewPassword,
                 accountSettings.Password.ConfirmPassword);
@@ -48,12 +48,12 @@ namespace MarsAdvancedTaskPart1.Test.Tests
         [Test, TestCaseSource(typeof(TestDataProvider), nameof(TestDataProvider.AccountSettingsData))]
         public void AccountSettings_CancelEditName(AccountSettingsModel accountSettings)
         {
-            State.Test.Log(Status.Info, "Starting AccountTestings Test");
+            State.Test.Log(Status.Info, "Starting Account settings - cancel edit name....");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
 
             _accountSettings = new AccountSettingsComponent(State);
-            State.Test.Log(Status.Info, "Click the cancel button");
+            State.Test.Log(Status.Info, "Enter name details....");
             _accountSettings.CancelAccountNameEdit(accountSettings.Name);
             var actual = _accountSettings.GetNameAfterCancel();
             State.Assert.IsEqualTo(accountSettings.Name,actual,"Actual and Expected are same");
@@ -62,7 +62,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
         [Test, TestCaseSource(typeof(TestDataProvider), nameof(TestDataProvider.AccountSettingsData))]
         public void AccountSettings_CancelEditPassword(AccountSettingsModel accountSettings)
         {
-            State.Test.Log(Status.Info, "Starting AccountTestings Test");
+            State.Test.Log(Status.Info, "Starting Account settings - cancel edit password....");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
 
@@ -79,7 +79,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
         [Test]
         public void AccountSettings_Notification()
         {
-            State.Test.Log(Status.Info, "Starting AccountTestings Test");
+            State.Test.Log(Status.Info, "Starting Account settings notification....");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
 
@@ -92,7 +92,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
         [Test,TestCaseSource(typeof(TestDataProvider), nameof(TestDataProvider.AccountSettingsData))]
         public void AccountSettings_Deactive(AccountSettingsModel accountSettings)
         {
-            State.Test.Log(Status.Info, "Starting AccountTestings Test");
+            State.Test.Log(Status.Info, "Starting Account settings - deactivate account");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
 

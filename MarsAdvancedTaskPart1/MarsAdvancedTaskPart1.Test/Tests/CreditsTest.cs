@@ -1,5 +1,4 @@
 ﻿using AventStack.ExtentReports;
-using MarsAdvancedTaskPart1.Framework.Pages.Components;
 using MarsAdvancedTaskPart1.Framework.Pages.Components.AccountMenuComponent;
 
 namespace MarsAdvancedTaskPart1.Test.Tests

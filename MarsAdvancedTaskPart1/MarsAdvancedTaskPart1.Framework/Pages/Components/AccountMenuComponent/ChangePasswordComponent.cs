@@ -36,17 +36,23 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components.AccountMenuComponent
 
         public void EnterCurrentPassword(string currentPassword)
         {
-            _state.Wait.WaitUntilElementIsVisible(_currentPasswordElement).SendKeys(currentPassword);
+            var current = _state.Wait.WaitUntilElementIsVisible(_currentPasswordElement);
+            current.Clear();
+            current.SendKeys(currentPassword);
         }
 
         public void EnterNewPassword(string newPassword)
         {
-            _state.Wait.WaitUntilElementIsVisible(_newPasswordElement).SendKeys(newPassword);
+            var newOne = _state.Wait.WaitUntilElementIsVisible(_newPasswordElement);
+            newOne.Clear();
+            newOne.SendKeys(newPassword);
         }
 
         public void EnterConfirmPassword(string confirmPassword)
         {
-            _state.Wait.WaitUntilElementIsVisible(_confirmPasswordElement).SendKeys(confirmPassword);
+            var confirm = _state.Wait.WaitUntilElementIsVisible(_confirmPasswordElement);
+            confirm.Clear();
+            confirm.SendKeys(confirmPassword);
         }
 
         public void ClickSaveButton()

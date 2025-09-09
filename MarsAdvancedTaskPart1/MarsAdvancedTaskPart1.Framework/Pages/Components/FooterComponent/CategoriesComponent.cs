@@ -27,6 +27,7 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components.FooterComponent
         private readonly By _funAndLifestyleLink = By.XPath("//a[normalize-space()='Fun & Lifestyle']");
         private readonly By _siteMapLink = By.XPath("//a[normalize-space()='Sitemap']");
         private readonly By _inlineLoader = By.XPath("//div[@class='ui active text centered inline loader']");
+        private readonly By _results = By.XPath("//div[@class='twelve wide column']//div[@class='ui grid']");
 
         //Action Methods
         public void NavigateToTheProfilePage()    //Navigate to the profile page
@@ -106,6 +107,12 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components.FooterComponent
             {
                 return true;
             }
+        }
+
+        public string GetTextOfCategories()
+        {
+            var categoryResults=_state.Wait.WaitUntilElementIsVisible(_results);
+            return categoryResults.Text;
         }
     }
 }

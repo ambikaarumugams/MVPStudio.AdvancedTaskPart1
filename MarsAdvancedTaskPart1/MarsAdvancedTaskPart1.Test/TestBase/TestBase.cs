@@ -2,6 +2,7 @@
 using MarsAdvancedTaskPart1.Framework.Drivers;
 using MarsAdvancedTaskPart1.Framework.Helpers;
 using MarsAdvancedTaskPart1.Framework.Models;
+using MarsAdvancedTaskPart1.Framework.Pages.Components;
 using MarsAdvancedTaskPart1.Framework.Pages.Components.NavigationMenuComponent.ProfileComponent.ProfileMenuTabComponent;
 using NUnit.Framework.Interfaces;
 using MyExtent = AventStack.ExtentReports.ExtentReports;
@@ -61,7 +62,7 @@ namespace MarsAdvancedTaskPart1.Test.TestBase
             if (categories.Contains("language"))
             {
                 var languagesComponent = new LanguagesComponent(State);
-                foreach (var language in State.LanguagesToCleanUp)
+                foreach (var language in State.LanguagesCleanUp)
                 {
                     try
                     {
@@ -75,12 +76,12 @@ namespace MarsAdvancedTaskPart1.Test.TestBase
                 }
 
                 Test.Log(Status.Info, $"CleanUp Completed");
-                //State.LanguagesToCleanUp.Clear(); // Reset for next test
+                //State.LanguagesCleanUp.Clear(); // Reset for next test
             }
             else if (categories.Contains("skills"))
             {
                 var skillsComponent = new SkillsComponent(State);
-                foreach (var skill in State.SkillsToCleanUp)
+                foreach (var skill in State.SkillsCleanUp)
                 {
                     try
                     {
@@ -97,7 +98,7 @@ namespace MarsAdvancedTaskPart1.Test.TestBase
             else if (categories.Contains("education"))
             {
                 var educationComponent = new EducationComponent(State);
-                foreach (var education in State.EducationToCleanUp)
+                foreach (var education in State.EducationCleanUp)
                 {
                     try
                     {
@@ -114,16 +115,33 @@ namespace MarsAdvancedTaskPart1.Test.TestBase
             else if (categories.Contains("certification"))
             {
                 var certificationComponent = new CertificationComponent(State);
-                foreach (var certification in State.CertificationToCleanUp)
+                foreach (var certification in State.CertificationCleanUp)
                 {
                     try
                     {
                         if (certification != null) certificationComponent.DeleteSpecificCertification(certification);
-                        Console.WriteLine($"[CleanUp] Deleted Education:{certification}");
+                        Console.WriteLine($"[CleanUp] Deleted Certification:{certification}");
                     }
                     catch (Exception ex)
                     {
                         Console.WriteLine($"[CLEANUP FAILED] Certification: {certification} — {ex.Message}");
+                    }
+                }
+                Test.Log(Status.Info, $"CleanUp Completed");
+            }
+            else if (categories.Contains("shareSkill"))
+            {
+                var shareSkillComponent = new ShareSkillComponent(State);
+                foreach (var shareSkillTitle in State.ShareSkillCleanUp)
+                {
+                    try
+                    {
+                        if (shareSkillTitle != null) shareSkillComponent.DeleteSpecificSharedSkill(shareSkillTitle);
+                        Console.WriteLine($"[CleanUp] Deleted Share skill:{shareSkillTitle}");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"[CLEANUP FAILED] Share Skill: {shareSkillTitle} — {ex.Message}");
                     }
                 }
                 Test.Log(Status.Info, $"CleanUp Completed");

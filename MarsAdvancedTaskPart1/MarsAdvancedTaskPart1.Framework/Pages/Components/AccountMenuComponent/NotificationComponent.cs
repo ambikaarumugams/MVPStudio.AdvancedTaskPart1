@@ -11,10 +11,11 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components.AccountMenuComponent
         {
             _state=state;
         }
-        //Locators
-        private readonly By _notificationTabElement =
-            By.XPath("//div[@class='ui top left pointing dropdown item active visible']");
-        private readonly By _notificationDropdownElement=By.XPath("//i[@class='dropdown icon']");
+
+       // Locators
+        private readonly By _notificationTabElement = By.XPath("//div[@class='ui top left pointing dropdown item active visible']");
+        private readonly By _notificationDropdownArrow = By.XPath("//i[@class='dropdown icon']");
+        private readonly By _notificationDropdownElement = By.XPath("//div[@class='item']");
 
         //Action Methods
         public void ClickNotificationsTab()
@@ -23,9 +24,11 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components.AccountMenuComponent
         }
 
         public string GetNotificationMessage()
-        { 
-            var notificationMessage = _state.Wait.WaitUntilElementIsVisible(_notificationDropdownElement).Text;
-            return notificationMessage;
+        {
+            var notificationMessage = _state.Wait.WaitUntilElementIsVisible(_notificationDropdownArrow) ;
+            notificationMessage.Click();
+            var text = _state.Wait.WaitUntilElementIsVisible(_notificationDropdownElement);
+            return text.Text;
         }
     }
 }

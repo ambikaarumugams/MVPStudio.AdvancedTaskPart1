@@ -18,10 +18,11 @@ namespace MarsAdvancedTaskPart1.Framework.Helpers
         public Settings Config { get; }
         public SignInComponent SignInComponent { get; private set; }
         public LoginModel LoginData { get; set; }
-        public List<string?> LanguagesToCleanUp { get; } = new();
-        public List<string?> SkillsToCleanUp { get; } = new();
-        public List<string?> EducationToCleanUp { get; } = new();
-        public List<string?> CertificationToCleanUp { get; } = new();
+        public List<string?> LanguagesCleanUp { get; } = new();
+        public List<string?> SkillsCleanUp { get; } = new();
+        public List<string?> EducationCleanUp { get; } = new();
+        public List<string?> CertificationCleanUp { get; } = new();
+        public List<string?> ShareSkillCleanUp { get; } = new();
 
 
         public TestState(IWebDriver driver, ExtentTest test, Settings config)

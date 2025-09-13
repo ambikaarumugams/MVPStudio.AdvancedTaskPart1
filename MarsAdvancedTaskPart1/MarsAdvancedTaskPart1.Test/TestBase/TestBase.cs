@@ -30,9 +30,8 @@ namespace MarsAdvancedTaskPart1.Test.TestBase
             Console.WriteLine($"Starting test run at {DateTime.Now}");
             var driver = WebDriverFactory.CreateDriver(Config.Browser); //Start browser
             Extent = ExtentManager.GetExtent(Config);//Extent report configured and attached
-            Test = Extent.CreateTest(TestContext.CurrentContext.Test.Name); // now test is ready
+            Test = ExtentTestManager.CreateTest(Extent,TestContext.CurrentContext.Test.Name); // now test is ready
             State = new TestState(driver, Test, Config);
-
             State.Driver.Navigate().GoToUrl(Config.Environment.BaseUrl);
             State.Driver.Manage().Window.Maximize();
         }
@@ -157,3 +156,4 @@ namespace MarsAdvancedTaskPart1.Test.TestBase
         }
     }
 }
+ 

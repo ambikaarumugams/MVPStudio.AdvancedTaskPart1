@@ -42,16 +42,17 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 string actualUrl = State.Driver.Url; // get current URL
                 actualMessages.Add(actualUrl);
                 expectedMessages.Add(category.Value);
+              
+            }
+            var refineResults = _categoriesComponent.GetListOfCategoriesFromRefineResults();
+            Console.WriteLine(refineResults); actualMessages.Add(refineResults);
+            foreach (var expected in expectedMessages)
+            {
+                State.Assert.AssertListHasUrlWith(actualMessages, expected);
+                //State.Assert.AssertListHasUrlWith(actualMessages, "/Sitemap");
             }
 
-            Assert.Multiple(() =>
-            {
-                foreach (var expected in expectedMessages)
-                {
-                    State.Assert.AssertAllMessagesContain(actualMessages, expected);
-                    //State.Assert.AssertListHasUrlWith(actualMessages, "/Sitemap");
-                }
-            });
+
         }
     }
 }

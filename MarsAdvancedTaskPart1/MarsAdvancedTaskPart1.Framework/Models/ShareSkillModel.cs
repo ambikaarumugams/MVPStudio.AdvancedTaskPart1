@@ -1,10 +1,9 @@
-﻿using System.Globalization;
-
-namespace MarsAdvancedTaskPart1.Framework.Models
+﻿namespace MarsAdvancedTaskPart1.Framework.Models
 {
     public class ShareSkillModel
     {
-        public List<ShareSkillDetails> ShareSkills { get; set; } = new();
+        public List<ShareSkillDetails> ShareSkills { get; set; } = new(); 
+        public List<ShareSkillDetails> EditSkills { get; set; } = new();
     }
 
     public class ShareSkillDetails
@@ -31,7 +30,6 @@ namespace MarsAdvancedTaskPart1.Framework.Models
         public string? Active { get; set; }
 
         public string? ExpectedToastMessage { get; set; }
-        public string? ExpectedToastContains { get; set; }
         public string? ExpectedFieldErrorMessage { get; set; }
     }
 

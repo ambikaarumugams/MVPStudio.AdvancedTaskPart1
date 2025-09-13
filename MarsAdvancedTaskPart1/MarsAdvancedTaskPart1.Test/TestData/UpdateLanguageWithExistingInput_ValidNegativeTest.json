@@ -1,14 +1,14 @@
 {
   "AddLanguage": [
     {
-      "Language": "Tamil",
+      "Language": "Tamil1",
       "LanguageLevel": "Native/Bilingual"
     }
   ],
   "UpdateLanguage": [
     {
-      "ExistingLanguage": "Tamil",
-      "LanguageToUpdate": "Tamil",
+      "ExistingLanguage": "Tamil1",
+      "LanguageToUpdate": "Tamil1",
       "LanguageLevelToUpdate": "Conversational"
     }
   ],

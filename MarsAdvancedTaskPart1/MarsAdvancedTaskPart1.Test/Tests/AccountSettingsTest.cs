@@ -90,7 +90,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
         }
 
         [Test,TestCaseSource(typeof(TestDataProvider), nameof(TestDataProvider.AccountSettingsData))]
-        public void AccountSettings_Deactive(AccountSettingsModel accountSettings)
+        public void AccountSettings_Deactivate(AccountSettingsModel accountSettings)
         {
             State.Test.Log(Status.Info, "Starting Account settings - deactivate account");
             State.Test.Log(Status.Info, "Enter the Username and Password");

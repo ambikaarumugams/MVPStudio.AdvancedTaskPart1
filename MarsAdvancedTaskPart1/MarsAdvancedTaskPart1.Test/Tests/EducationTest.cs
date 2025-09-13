@@ -3,14 +3,13 @@ using MarsAdvancedTaskPart1.Framework.Helpers;
 using MarsAdvancedTaskPart1.Framework.Models;
 using MarsAdvancedTaskPart1.Framework.Pages.Components.NavigationMenuComponent.ProfileComponent.ProfileMenuTabComponent;
 
-[assembly: Parallelizable(ParallelScope.All)] // or All
-[assembly: LevelOfParallelism(5)]
 namespace MarsAdvancedTaskPart1.Test.Tests
 {
+    [Parallelizable(ParallelScope.All)]
     [TestFixture]
     public class EducationTest : TestBase.TestBase
     {
-        private EducationComponent? _educationComponent;
+        //private EducationComponent? _educationComponent;
 
         [Test, TestCaseSource(typeof(TestDataProvider), nameof(TestDataProvider.AddEducationDetailsValidData))] 
         public void AddEducationDetails_ValidInput(EducationModel educationModel)
@@ -21,7 +20,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             State.Test.Log(Status.Info, "Starting add education details with valid input...");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
-            _educationComponent = new EducationComponent(State);
+            var _educationComponent = new EducationComponent(State);
             _educationComponent.NavigateToTheProfilePage();
 
             State.Test.Log(Status.Info, "Enter the education details to add ...");
@@ -49,7 +48,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             State.Test.Log(Status.Info, "Starting add education details with invalid college name...");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
-            _educationComponent = new EducationComponent(State);
+            var _educationComponent = new EducationComponent(State);
             _educationComponent.NavigateToTheProfilePage();
 
             State.Test.Log(Status.Info, "Enter the education details to add ...");
@@ -87,7 +86,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             State.Test.Log(Status.Info, "Starting add education details with invalid degree ...");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
-            _educationComponent = new EducationComponent(State);
+            var _educationComponent = new EducationComponent(State);
             _educationComponent.NavigateToTheProfilePage();
 
             State.Test.Log(Status.Info, "Enter the education details to add ...");
@@ -124,7 +123,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             State.Test.Log(Status.Info, "Starting add education details with negative testing valid input...");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
-            _educationComponent = new EducationComponent(State);
+            var _educationComponent = new EducationComponent(State);
             _educationComponent.NavigateToTheProfilePage();
 
             State.Test.Log(Status.Info, "Enter the education details to add ...");
@@ -155,7 +154,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             State.Test.Log(Status.Info, "Starting add education details with leave either one or all the fields empty...");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
-            _educationComponent = new EducationComponent(State);
+            var _educationComponent = new EducationComponent(State);
             _educationComponent.NavigateToTheProfilePage();
 
             State.Test.Log(Status.Info, "Enter the education details to add ...");
@@ -181,7 +180,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             State.Test.Log(Status.Info, "Starting add education details with string length of 250 characters..");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
-            _educationComponent = new EducationComponent(State);
+            var _educationComponent = new EducationComponent(State);
             _educationComponent.NavigateToTheProfilePage();
 
             State.Test.Log(Status.Info, "Enter the education details to add ...");
@@ -212,7 +211,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             State.Test.Log(Status.Info, "Starting add education details with string length of 250 characters...");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
-            _educationComponent = new EducationComponent(State);
+            var _educationComponent = new EducationComponent(State);
             _educationComponent.NavigateToTheProfilePage();
 
             State.Test.Log(Status.Info, "Enter the education details to add ...");
@@ -243,7 +242,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             State.Test.Log(Status.Info, "Starting add education details when session expired...");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
-            _educationComponent = new EducationComponent(State);
+            var _educationComponent = new EducationComponent(State);
             _educationComponent.NavigateToTheProfilePage();
 
             State.Test.Log(Status.Info, "Enter the education details to add ...");
@@ -270,7 +269,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             State.Test.Log(Status.Info, "Starting add education details with duplicate data...");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
-            _educationComponent = new EducationComponent(State);
+            var _educationComponent = new EducationComponent(State);
             _educationComponent.NavigateToTheProfilePage();
 
             State.Test.Log(Status.Info, "Enter the education details to add ...");
@@ -307,7 +306,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
 
-            _educationComponent = new EducationComponent(State);
+            var _educationComponent = new EducationComponent(State);
             _educationComponent.NavigateToTheProfilePage();
             State.Test.Log(Status.Info, "Enter the education details to add ...");
 
@@ -332,7 +331,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             State.Test.Log(Status.Info, "Starting add education details with huge string length...");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
-            _educationComponent = new EducationComponent(State);
+            var _educationComponent = new EducationComponent(State);
             _educationComponent.NavigateToTheProfilePage();     
             
             State.Test.Log(Status.Info, "Enter the education details to add ...");
@@ -363,7 +362,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             State.Test.Log(Status.Info, "Starting update education details with valid input...");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
-            _educationComponent = new EducationComponent(State);
+            var _educationComponent = new EducationComponent(State);
             _educationComponent.NavigateToTheProfilePage();
 
             State.Test.Log(Status.Info, "Enter the education details to add ...");
@@ -404,7 +403,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             State.Test.Log(Status.Info, "Starting update education details with invalid input...");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
-            _educationComponent = new EducationComponent(State);
+            var _educationComponent = new EducationComponent(State);
             _educationComponent.NavigateToTheProfilePage();
 
             State.Test.Log(Status.Info, "Enter the education details to add ...");
@@ -455,7 +454,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
 
-            _educationComponent = new EducationComponent(State);
+            var _educationComponent = new EducationComponent(State);
             _educationComponent.NavigateToTheProfilePage();
             State.Test.Log(Status.Info, "Enter the education details to add ...");
 
@@ -505,7 +504,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             State.Test.Log(Status.Info, "Starting update education details with leave either one or all the fields are empty...");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
-            _educationComponent = new EducationComponent(State);
+            var _educationComponent = new EducationComponent(State);
             _educationComponent.NavigateToTheProfilePage();
 
             State.Test.Log(Status.Info, "Enter the education details to add ...");
@@ -545,7 +544,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             State.Test.Log(Status.Info, "Starting update education details with existing details...");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
-            _educationComponent = new EducationComponent(State);
+            var _educationComponent = new EducationComponent(State);
             _educationComponent.NavigateToTheProfilePage();
 
             State.Test.Log(Status.Info, "Enter the education details to add ...");
@@ -586,7 +585,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             State.Test.Log(Status.Info, "Starting update education details with huge string...");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
-            _educationComponent = new EducationComponent(State);
+            var _educationComponent = new EducationComponent(State);
             _educationComponent.NavigateToTheProfilePage();
 
             State.Test.Log(Status.Info, "Enter the education details to add ...");
@@ -633,7 +632,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             State.Test.Log(Status.Info, "Starting update education details when session expired...");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
-            _educationComponent = new EducationComponent(State);
+            var _educationComponent = new EducationComponent(State);
             _educationComponent.NavigateToTheProfilePage();
 
             State.Test.Log(Status.Info, "Enter the education details to add ...");
@@ -677,7 +676,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             State.Test.Log(Status.Info, "Starting Add education details with valid input negative testing...");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
-            _educationComponent = new EducationComponent(State);
+            var _educationComponent = new EducationComponent(State);
             _educationComponent.NavigateToTheProfilePage();
 
             State.Test.Log(Status.Info, "Enter the education details to add ...");
@@ -717,7 +716,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             State.Test.Log(Status.Info, "Starting update education details with string length 250...");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
-            _educationComponent = new EducationComponent(State);
+            var _educationComponent = new EducationComponent(State);
             _educationComponent.NavigateToTheProfilePage();
 
             State.Test.Log(Status.Info, "Enter the education details to add ...");
@@ -759,7 +758,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             State.Test.Log(Status.Info, "Starting update education details with string length 250....");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
-            _educationComponent = new EducationComponent(State);
+            var _educationComponent = new EducationComponent(State);
             _educationComponent.NavigateToTheProfilePage();
 
             State.Test.Log(Status.Info, "Enter the education details to add ...");
@@ -800,7 +799,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             State.Test.Log(Status.Info, "Starting delete education details ...");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
-            _educationComponent = new EducationComponent(State);
+            var _educationComponent = new EducationComponent(State);
             _educationComponent.NavigateToTheProfilePage();
 
             State.Test.Log(Status.Info, "Enter the education details to add ...");
@@ -836,7 +835,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             State.Test.Log(Status.Info, "Starting delete education details when session expired...");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
-            _educationComponent = new EducationComponent(State);
+            var _educationComponent = new EducationComponent(State);
             _educationComponent.NavigateToTheProfilePage();
 
             State.Test.Log(Status.Info, "Enter the education details to add ...");

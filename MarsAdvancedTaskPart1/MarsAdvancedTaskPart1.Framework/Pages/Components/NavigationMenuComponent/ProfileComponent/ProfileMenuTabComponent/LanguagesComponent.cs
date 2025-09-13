@@ -1,7 +1,6 @@
 ﻿using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
 using MarsAdvancedTaskPart1.Framework.Helpers;
-using MarsAdvancedTaskPart1.Framework.Models;
 using SeleniumExtras.WaitHelpers;
 
 namespace MarsAdvancedTaskPart1.Framework.Pages.Components.NavigationMenuComponent.ProfileComponent.ProfileMenuTabComponent

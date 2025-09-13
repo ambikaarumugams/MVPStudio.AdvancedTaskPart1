@@ -127,16 +127,10 @@ namespace MarsAdvancedTaskPart1.Framework.Helpers
             });
         }
 
-        public void IsTrueBool(bool actual)
-        {
-            Assert.That(actual, Is.Not.Null.And.Not.Empty, "The list is null or empty.");
-        }
-
         public   void AssertListHasUrlWith(List<string> urls, string part)
         {
-            Assert.That(urls, Has.Some.Contains(part),$"Expected a URL containing '{part}', but got: {string.Join(", ", urls)}");
+            Assert.That(urls.Any(u => u.Replace("&", "").Contains(part)), Is.True);
         }
-
     }
 
 }

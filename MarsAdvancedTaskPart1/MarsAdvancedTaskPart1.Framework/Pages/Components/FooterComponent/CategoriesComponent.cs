@@ -1,6 +1,5 @@
 ﻿using MarsAdvancedTaskPart1.Framework.Helpers;
 using OpenQA.Selenium;
-using System.Reflection.Metadata.Ecma335;
 
 namespace MarsAdvancedTaskPart1.Framework.Pages.Components.FooterComponent
 {
@@ -114,5 +113,17 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components.FooterComponent
             var categoryResults=_state.Wait.WaitUntilElementIsVisible(_results);
             return categoryResults.Text;
         }
+
+        public string GetListOfCategoriesFromRefineResults()
+        {
+            var refineResults = _state.Driver.FindElements(By.XPath("//div[@role='list']"));
+            foreach (var list in refineResults)
+            {
+               return list.Text;
+            }
+            return string.Empty;
+        }
+
+
     }
 }

@@ -1,13 +1,9 @@
 ﻿using AventStack.ExtentReports;
 using MarsAdvancedTaskPart1.Framework.Helpers;
-using NUnit.Framework.Internal;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
-using SeleniumExtras.WaitHelpers;
-using System;
 using System.Globalization;
-using System.Reflection.Emit;
 
 namespace MarsAdvancedTaskPart1.Framework.Pages.Components
 {
@@ -23,68 +19,131 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components
         //Locators
         private readonly By _profileTab = By.XPath("//a[normalize-space()='Profile']");
         private readonly By _shareSkillTab = By.XPath("//a[normalize-space()='Share Skill']");
-        private readonly By _titleTextField = By.XPath("//input[@placeholder='Write a title to describe the service you provide.']");
-        private readonly By _descriptionTextField = By.XPath("//textarea[@placeholder='Please tell us about any hobbies, additional expertise, or anything else you’d like to add.']");
-        private readonly By _tagsInputBox = By.XPath("//div[@class='ReactTags__tagInput']/input[contains(@aria-label,'Add new tag')]");
+
+        private readonly By _titleTextField =
+            By.XPath("//input[@placeholder='Write a title to describe the service you provide.']");
+
+        private readonly By _descriptionTextField =
+            By.XPath(
+                "//textarea[@placeholder='Please tell us about any hobbies, additional expertise, or anything else you’d like to add.']");
+
+        private readonly By _tagsInputBox =
+            By.XPath("//div[@class='ReactTags__tagInput']/input[contains(@aria-label,'Add new tag')]");
+
         private readonly By _calendar = By.XPath("//a[@class='k-link']//span[@class='k-icon k-i-calendar']");
-        private readonly By _currentDateCalendar = By.XPath("//a[@class='k-link k-nav-today']");
-        private readonly By _formattedDate = By.XPath("//span[@class='k-sm-date-format']");
         private readonly By _previousArrowToSelectPastDate = By.XPath("//a[@class='k-link k-nav-prev']");
         private readonly By _nextArrowToSelectFutureDate = By.XPath("//a[@class='k-link k-nav-next']");
-        private readonly By _calendarHeader = By.XPath("//div[contains(@class,'k-scheduler-calendar')]//a[contains(@class,'k-link') and contains(@class,'k-nav-fast')]");
+
+        private readonly By _calendarHeader =
+            By.XPath(
+                "//div[contains(@class,'k-scheduler-calendar')]//a[contains(@class,'k-link') and contains(@class,'k-nav-fast')]");
 
         private readonly By _selectCategory = By.XPath("//select[@name='categoryId']");
         private readonly By _selectSubCategory = By.XPath("//select[@name='subcategoryId']");
-        private readonly By _workWeekTab = By.XPath("//li[contains(@class,'k-current-view')]//a[contains(@role,'button')][normalize-space()='Work Week']");
+
+        private readonly By _workWeekTab =
+            By.XPath(
+                "//li[contains(@class,'k-current-view')]//a[contains(@role,'button')][normalize-space()='Work Week']");
+
         private readonly By _dayLink = By.XPath("//a[normalize-space()='Day']");
-        private readonly By _workWeekLink = By.XPath("//li[contains(@class,'k-state-default k-view-workweek k-state-selected')]//a[contains(@role,'button')][normalize-space()='Work Week']");
+
+        private readonly By _workWeekLink =
+            By.XPath(
+                "//li[contains(@class,'k-state-default k-view-workweek k-state-selected')]//a[contains(@role,'button')][normalize-space()='Work Week']");
+
         private readonly By _weekLink = By.XPath("//a[normalize-space()='Week']");
         private readonly By _monthLink = By.XPath("//a[normalize-space()='Month']");
         private readonly By _agendaLink = By.XPath("//a[normalize-space()='Agenda']");
         private readonly By _timeLineLink = By.XPath("//a[normalize-space()='Timeline']");
         private readonly By _eventTitle = By.XPath("//input[@title='Title']");
-        private readonly By _startDate = By.XPath("//div[@data-container-for='start']//span[@class='k-widget k-datetimepicker k-header']//span[@class='k-icon k-i-calendar']");
-        private readonly By _startDateTime = By.XPath("//div[@data-container-for='start']//span[@class='k-icon k-i-clock']");
-        private readonly By _endDate = By.XPath("//div[@data-container-for='end']//span[@class='k-widget k-datetimepicker k-header']//span[@class='k-icon k-i-calendar']");
-        private readonly By _endDateTime = By.XPath("//div[@data-container-for='end']//span[@class='k-icon k-i-clock']");
-        private readonly By _selectDateInsideEventCreator = By.XPath("//td[contains(@id,'_cell')]//a[@title='{fullDateTitle}' and normalize-space(text())='{day}']");
+
+        private readonly By _startDate =
+            By.XPath(
+                "//div[@data-container-for='start']//span[@class='k-widget k-datetimepicker k-header']//span[@class='k-icon k-i-calendar']");
+
+        private readonly By _startDateTime =
+            By.XPath("//div[@data-container-for='start']//span[@class='k-icon k-i-clock']");
+
+        private readonly By _endDate =
+            By.XPath(
+                "//div[@data-container-for='end']//span[@class='k-widget k-datetimepicker k-header']//span[@class='k-icon k-i-calendar']");
+
+        private readonly By _endDateTime =
+            By.XPath("//div[@data-container-for='end']//span[@class='k-icon k-i-clock']");
+
+        private readonly By _selectDateInsideEventCreator =
+            By.XPath("//td[contains(@id,'_cell')]//a[@title='{fullDateTitle}' and normalize-space(text())='{day}']");
+
         private readonly By _alertMessage = By.XPath("//div[@role='alert']");
         private readonly By _allDayEventCheckBox = By.XPath("//input[@title='All day event']");
         private readonly By _repeatEveryTextBox = By.XPath("//input[@class='k-recur-interval k-input']");
-        private readonly By _repeatEveryDaysUpArrow = By.XPath("//span[@class='k-numeric-wrap k-state-default']//span[@class='k-icon k-i-arrow-60-up']");
-        private readonly By _repeatEveryDaysDownArrow = By.XPath("//span[@class='k-numeric-wrap k-state-default']//span[@class='k-icon k-i-arrow-60-down']");
+
+        private readonly By _repeatEveryDaysUpArrow =
+            By.XPath("//span[@class='k-numeric-wrap k-state-default']//span[@class='k-icon k-i-arrow-60-up']");
+
+        private readonly By _repeatEveryDaysDownArrow =
+            By.XPath("//span[@class='k-numeric-wrap k-state-default']//span[@class='k-icon k-i-arrow-60-down']");
+
         private readonly By _endNeverRadioButton = By.XPath("//input[@value='never']");
         private readonly By _endAfterNOcuurencesRadioButton = By.XPath("//input[@value='count']");
-        private readonly By _occurenceUpArrow = By.XPath("//span[@class='k-widget k-numerictextbox k-recur-count']//span[@class='k-icon k-i-arrow-60-up']");
-        private readonly By _occurenceDownArrow = By.XPath("//span[@class='k-widget k-numerictextbox k-recur-count']//span[@class='k-icon k-i-arrow-60-down']");
+
+        private readonly By _occurenceUpArrow =
+            By.XPath("//span[@class='k-widget k-numerictextbox k-recur-count']//span[@class='k-icon k-i-arrow-60-up']");
+
+        private readonly By _occurenceDownArrow =
+            By.XPath(
+                "//span[@class='k-widget k-numerictextbox k-recur-count']//span[@class='k-icon k-i-arrow-60-down']");
+
         private readonly By _endOnRadioButton = By.XPath("//input[@value='until']");
         private readonly By _endOnDateTextBox = By.XPath("//input[@title='On ']");
-        private readonly By _repeatEveryForWeeklyTextBox = By.XPath("//input[@class='k-formatted-value k-recur-interval k-input']");
-        private readonly By _repeatDownArrow = By.XPath("//span[@title='Recurrence editor']//span[@class='k-icon k-i-arrow-60-down']");
+
+        private readonly By _repeatEveryForWeeklyTextBox =
+            By.XPath("//input[@class='k-formatted-value k-recur-interval k-input']");
+
+        private readonly By _repeatDownArrow =
+            By.XPath("//span[@title='Recurrence editor']//span[@class='k-icon k-i-arrow-60-down']");
+
         private readonly By _descriptionTextBoxInsideEvent = By.XPath("//textarea[@title='Description']");
-        private readonly By _ownerTextBoxArrow = By.XPath("//span[@title='No title']//span[@class='k-icon k-i-arrow-60-down']");
+
+        private readonly By _ownerTextBoxArrow =
+            By.XPath("//span[@title='No title']//span[@class='k-icon k-i-arrow-60-down']");
+
         private readonly By _saveEventButton = By.XPath("//a[normalize-space()='Save']");
         private readonly By _cancelEventButton = By.XPath("//a[normalize-space()='Cancel']");
 
         private readonly By _showBusinessHoursTab = By.XPath("//a[normalize-space()='Show business hours']");
-        private readonly By _skillExchangeTagInputBox = By.XPath("//div[contains(@class,'twelve wide column')]//div[contains(@class,'')]//div[contains(@class,'form-wrapper')]//input[contains(@placeholder,'Add new tag')]");
+
+        private readonly By _skillExchangeTagInputBox =
+            By.XPath(
+                "//div[contains(@class,'twelve wide column')]//div[contains(@class,'')]//div[contains(@class,'form-wrapper')]//input[contains(@placeholder,'Add new tag')]");
+
         private readonly By _creditTextBox = By.XPath("//input[@placeholder='Amount']");
         private readonly By _workSamplesIcon = By.XPath("//i[@class='huge plus circle icon padding-25']");
         private readonly By _saveButton = By.XPath("//input[@value='Save']");
         private readonly By _cancelButton = By.XPath("//input[@value='Cancel']");
         private readonly By _titleFieldError = By.XPath("//div[@class='ui basic red prompt label transition visible']");
-        private readonly By _descriptionFieldErrorForSpecialCharacters = By.XPath("//div[normalize-space()='Special characters are not allowed.']");
+
+        private readonly By _descriptionFieldErrorForSpecialCharacters =
+            By.XPath("//div[normalize-space()='Special characters are not allowed.']");
+
         private readonly By _descriptionFieldError = By.XPath("//div[normalize-space()='Description is required']");
         private readonly By _categoryFieldError = By.XPath("//div[normalize-space()='Category is required']");
         private readonly By _tagsFieldError = By.XPath("//div[contains(text(),'Tags are required')]");
         private readonly By _skillExchangeFieldError = By.XPath("//div[contains(text(),'Tag is required')]");
 
-
         private readonly By _manageListingsLink = By.XPath("//a[normalize-space()='Manage Listings']");
         private readonly By _manageListingsTable = By.XPath("//table[@class='ui striped table']");
-        private readonly By _viewAddedSkills = By.XPath("//table[@class='ui striped table']//tbody/tr[1]//button[i[contains(@class,'eye icon')]]");
-        private readonly By _serviceTypeFromAddedSkills = By.XPath("//div[@class='content'][div[@class='header' and text()='Service Type']]/div[@class='description']");
-        private readonly By _locationTypeFromAddedSkills = By.XPath("//div[@class='content'][div[@class='header' and text()='Location Type']]/div[@class='description']");
+
+        private readonly By _viewAddedSkills =
+            By.XPath("//table[@class='ui striped table']//tbody/tr[1]//button[i[contains(@class,'eye icon')]]");
+
+        private readonly By _serviceTypeFromAddedSkills =
+            By.XPath(
+                "//div[@class='content'][div[@class='header' and text()='Service Type']]/div[@class='description']");
+
+        private readonly By _locationTypeFromAddedSkills =
+            By.XPath(
+                "//div[@class='content'][div[@class='header' and text()='Location Type']]/div[@class='description']");
 
         //Action Methods
         public void NavigateToTheProfilePage()
@@ -136,26 +195,30 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components
 
         public void SelectServiceType(string serviceType)
         {
-            var serviceTypeRadioButton = _state.Wait.WaitUntilElementToBeClickable(By.XPath($"//input[@name='serviceType' and @value='{serviceType}']/following-sibling::label"));
+            var serviceTypeRadioButton = _state.Wait.WaitUntilElementToBeClickable(
+                By.XPath($"//input[@name='serviceType' and @value='{serviceType}']/following-sibling::label"));
 
-            // Scroll into view
-            ((IJavaScriptExecutor)_state.Driver).ExecuteScript("arguments[0].scrollIntoView(true);", serviceTypeRadioButton);
-            Thread.Sleep(3000);  // Give time for scroll animation
+            ((IJavaScriptExecutor) _state.Driver).ExecuteScript("arguments[0].scrollIntoView(true);",
+                serviceTypeRadioButton); // Scroll into view
+            Thread.Sleep(3000);
 
             if (!serviceTypeRadioButton.Selected)
             {
                 serviceTypeRadioButton.Click();
-                _state.Test.Log(Status.Info, $"Service Type selected: {(serviceType == "0" ? "Hourly basis" : "One-off service")}");
+                _state.Test.Log(Status.Info,
+                    $"Service Type selected: {(serviceType == "0" ? "Hourly basis" : "One-off service")}");
             }
             else
             {
-                _state.Test.Log(Status.Info, $"Service Type already selected: {(serviceType == "0" ? "Hourly basis" : "One-off service")}");
+                _state.Test.Log(Status.Info,
+                    $"Service Type already selected: {(serviceType == "0" ? "Hourly basis" : "One-off service")}");
             }
         }
 
         public void SelectLocationType(string locationType)
         {
-            var locationTypeRadioButton = _state.Wait.WaitUntilElementIsVisible(By.XPath($"//input[@name='locationType' and @value='{locationType}']/following-sibling::label"));
+            var locationTypeRadioButton = _state.Wait.WaitUntilElementIsVisible(
+                By.XPath($"//input[@name='locationType' and @value='{locationType}']/following-sibling::label"));
 
             if (!locationTypeRadioButton.Selected)
             {
@@ -164,19 +227,20 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components
             }
             else
             {
-                _state.Test.Log(Status.Info, $"Location Type already selected:{(locationType == "0" ? "On-site" : "Online")}");
+                _state.Test.Log(Status.Info,
+                    $"Location Type already selected:{(locationType == "0" ? "On-site" : "Online")}");
             }
         }
 
-        public void ClickCalendarAndSelectCurrentDate()
+        public void ClickCalendarAndSelectCurrentDate() //I used Javascript to select the current date/today's date
         {
             var script = @"const calendarIcon = document.querySelector('a.k-link .k-i-calendar').closest('a');
                            calendarIcon.click();
                            setTimeout(() => {  const todayBtn = document.querySelector('a.k-nav-today');
                                                if (todayBtn) todayBtn.click();
-                                             }, 500);";  // Wait 500ms to allow calendar popup to render
+                                             }, 500);"; // Wait 500ms to allow calendar popup to render
 
-            ((IJavaScriptExecutor)_state.Driver).ExecuteScript(script);
+            ((IJavaScriptExecutor) _state.Driver).ExecuteScript(script);
 
             Thread.Sleep(500); // Wait to let it visually update
             _state.Test.Log(Status.Info, "Selected today via chained calendar interaction.");
@@ -185,20 +249,20 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components
 
         public void ClickWeekLink()
         {
-            var _weekLinkElement = _state.Wait.WaitUntilElementToBeClickable(_weekLink);
-            _weekLinkElement.Click();
+            var weekLinkElement = _state.Wait.WaitUntilElementToBeClickable(_weekLink);
+            weekLinkElement.Click();
         }
 
         public void ClickWorkWeekLink()
         {
-            var _workWeekLinkElement = _state.Wait.WaitUntilElementToBeClickable(_workWeekLink);
-            _workWeekLinkElement.Click();
+            var workWeekLinkElement = _state.Wait.WaitUntilElementToBeClickable(_workWeekLink);
+            workWeekLinkElement.Click();
         }
 
         public string GetCalendarHeader()
         {
-            var _calendarHeaderElement = _state.Wait.WaitUntilElementIsVisible(_calendarHeader);
-            return _calendarHeaderElement.Text;
+            var calendarHeaderElement = _state.Wait.WaitUntilElementIsVisible(_calendarHeader);
+            return calendarHeaderElement.Text;
         }
 
         public void ClickNextArrowForFutureDates()
@@ -220,49 +284,18 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components
             cell.Click();
         }
 
-        public void SelectDate(string dateString)
-        {
-            var target = DateTime.Parse(dateString);
-
-            // open calendar input first
-            var currentMonthYear = _state.Wait.WaitUntilElementIsVisible(_calendar);
-
-            while (true)
-            {
-                string headerText = currentMonthYear.Text;
-
-                DateTime current = DateTime.ParseExact(headerText, "MMMM yyyy", CultureInfo.InvariantCulture);
-
-                if (current.Year == target.Year && current.Month == target.Month)
-                    break;
-
-                if (current > target)
-                {
-                    _state.Driver.FindElement(By.XPath("//a[contains(@class,'k-nav-prev')]")).Click();
-                }
-                else
-                {
-                    _state.Driver.FindElement(By.XPath("//a[contains(@class,'k-nav-next')]")).Click();
-                }
-
-                currentMonthYear = _state.Wait.WaitUntilElementIsVisible(By.XPath("//a[contains(@class,'k-nav-fast')]"));
-            }
-
-            // Click the day
-
-            var dayCell = _state.Wait.WaitUntilElementIsVisible(By.XPath($"//table[contains(@class,'k-month')]//td[normalize-space(text())='{target.Day}']"));
-            dayCell.Click();
-        }
-
         public void SelectSkillTradeType(string tradeType)
         {
             string value = tradeType.Equals("SkillExchange", StringComparison.OrdinalIgnoreCase) ? "true" : "false";
-            string text = tradeType.Equals("SkillExchange", StringComparison.OrdinalIgnoreCase) ? "Skill-exchange" : "Credit";
+            string text = tradeType.Equals("SkillExchange", StringComparison.OrdinalIgnoreCase)
+                ? "Skill-exchange"
+                : "Credit";
 
-            var radioButtonLocator = By.XPath($"//input[@name='skillTrades']/following-sibling::label[normalize-space(.)='{text}']");
+            var radioButtonLocator =
+                By.XPath($"//input[@name='skillTrades']/following-sibling::label[normalize-space(.)='{text}']");
 
             var radioButton = _state.Wait.WaitUntilElementToBeClickable(radioButtonLocator);
-            ((IJavaScriptExecutor)_state.Driver).ExecuteScript("arguments[0].click();", radioButton);
+            ((IJavaScriptExecutor) _state.Driver).ExecuteScript("arguments[0].click();", radioButton);
             Thread.Sleep(300);
 
             _state.Test.Log(Status.Info, $"Skill Trade Type selected: {tradeType}");
@@ -286,9 +319,10 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components
             var fileInput = _state.Driver.FindElement(By.Id("selectFile"));
 
             // Optional: Unhide if necessary
-            ((IJavaScriptExecutor)_state.Driver).ExecuteScript("arguments[0].style.display = 'block';", fileInput); //It makes a hidden HTML element visible by changing its CSS display property.
+            ((IJavaScriptExecutor) _state.Driver).ExecuteScript("arguments[0].style.display = 'block';",
+                fileInput); //It makes a hidden HTML element visible by changing its CSS display property.
 
-            fileInput.SendKeys(filePath);  // This simulates file selection
+            fileInput.SendKeys(filePath); // This simulates file selection
             _state.Test.Log(Status.Info, $"Uploaded file: {Path.GetFileName(filePath)}");
         }
 
@@ -297,12 +331,12 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components
             var locator = By.XPath($"//input[@name='isActive' and @value='{status}']/following-sibling::label");
             var label = _state.Wait.WaitUntilElementToBeClickable(locator);
 
-            ((IJavaScriptExecutor)_state.Driver).ExecuteScript("arguments[0].scrollIntoView(true);", label);
+            ((IJavaScriptExecutor) _state.Driver).ExecuteScript("arguments[0].scrollIntoView(true);", label);
             Thread.Sleep(300);
 
             label.Click();
 
-            string readable = status.Equals("true", StringComparison.OrdinalIgnoreCase) ? "Yes" : "No";
+            var readable = status.Equals("true", StringComparison.OrdinalIgnoreCase) ? "Yes" : "No";
             _state.Test.Log(Status.Info, $"Set Active Status: {readable}");
         }
 
@@ -321,7 +355,9 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components
         {
             try
             {
-                var successMessage = _state.Wait.SafeGetText(By.XPath("//div[@class='ns-box ns-growl ns-effect-jelly ns-type-success ns-show']"));
+                var successMessage =
+                    _state.Wait.SafeGetText(
+                        By.XPath("//div[@class='ns-box ns-growl ns-effect-jelly ns-type-success ns-show']"));
                 return successMessage;
             }
             catch
@@ -330,11 +366,13 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components
             }
         }
 
-        public string GetErrorMessage()  //Get error message
+        public string GetErrorMessage() //Get error message
         {
             try
             {
-                var errorMessage = _state.Wait.WaitUntilElementIsVisible(By.XPath("//div[@class='ns-box ns-growl ns-effect-jelly ns-type-error ns-show']"));
+                var errorMessage =
+                    _state.Wait.WaitUntilElementIsVisible(
+                        By.XPath("//div[@class='ns-box ns-growl ns-effect-jelly ns-type-error ns-show']"));
                 return errorMessage.Text;
             }
             catch
@@ -349,42 +387,18 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components
             return titleFieldErrorElement.Text;
         }
 
-        //public (string MessageText, string MessageType) GetToastMessage()  //Tuples to get both success and error 
-        //{
-        //    try
-        //    {
-        //        var wait = new WebDriverWait(_state.Driver, TimeSpan.FromSeconds(3));
-
-        //        var toastMessageElement = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//div[contains(@class,'ns-type-') and contains(@class,'ns-show')]")));
-        //        Thread.Sleep(3000);
-        //        var messageText = toastMessageElement.Text.Trim();
-        //        var classAttribute = string.Empty;
-        //        var messageType = string.Empty;
-
-        //        classAttribute = toastMessageElement.GetAttribute("class");
-        //        if (classAttribute != null)
-        //        {
-        //            messageType = classAttribute.Contains("ns-type-success") ? "success" :
-        //                          classAttribute.Contains("ns-type-error") ? "error" : "none";
-        //        }
-        //        return (messageText, messageType);
-        //    }
-        //    catch
-        //    {
-        //        return ("", "error");
-        //    }
-        //}
-
         public string GetWorkSamplesErrorText()
         {
-            var errorMessage = _state.Wait.WaitUntilElementIsVisible(By.XPath("//div[contains(@class,'ns-box-inner')]")).Text;
+            var errorMessage = _state.Wait.WaitUntilElementIsVisible(By.XPath("//div[contains(@class,'ns-box-inner')]"))
+                .Text;
             return errorMessage;
         }
 
         public void ScrollToCenterOfThePage()
         {
             var shareSkillElement = _state.Wait.WaitUntilElementToBeClickable(_shareSkillTab);
-            ((IJavaScriptExecutor)_state.Driver).ExecuteScript("arguments[0].scrollIntoView({block:'center'})", shareSkillElement);
+            ((IJavaScriptExecutor) _state.Driver).ExecuteScript("arguments[0].scrollIntoView({block:'center'})",
+                shareSkillElement);
         }
 
         public void ClickManageListingsLink()
@@ -405,10 +419,16 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components
         {
             ClickManageListingsLink();
             var table = _state.Wait.WaitUntilElementToBeClickable(_manageListingsTable);
-            var row = table.FindElement(By.XPath($".//tbody/tr[td[3][normalize-space(text())='{title}']]"));// find the row where 3rd column text matches the title
-            var deleteButton = row.FindElement(By.XPath(".//button[i[contains(@class,'remove icon')]]"));// find the delete button in that row
+            var row = table.FindElement(
+                By.XPath(
+                    $".//tbody/tr[td[3][normalize-space(text())='{title}']]")); // find the row where 3rd column text matches the title
+            var deleteButton =
+                row.FindElement(
+                    By.XPath(".//button[i[contains(@class,'remove icon')]]")); // find the delete button in that row
             deleteButton.Click();
-            var deleteYesButton = _state.Wait.WaitUntilElementToBeClickable(By.XPath("//button[@class='ui icon positive right labeled button']"));
+            var deleteYesButton =
+                _state.Wait.WaitUntilElementToBeClickable(
+                    By.XPath("//button[@class='ui icon positive right labeled button']"));
             deleteYesButton.Click();
         }
 
@@ -419,7 +439,6 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components
             var firstRow = table.FindElement(By.XPath("//tbody//tr//td[4]"));
             return firstRow.Text;
         }
-
 
         public string GetTextOfDescriptionFieldError()
         {
@@ -451,54 +470,61 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components
             // middleRowIndex: 1-based index among rows that contain class 'k-middle-row'
             // columnIndex:    1-based <td> index (slot/column) inside that row
 
-            var gridCellElement = $"(//div[@class='k-scheduler-content']//table[@class='k-scheduler-table']//tbody//tr[contains(@class,'k-middle-row')])[{middleRowIndex}]//td[{columnIndex}]";
+            var gridCellElement =
+                $"(//div[@class='k-scheduler-content']//table[@class='k-scheduler-table']//tbody//tr[contains(@class,'k-middle-row')])[{middleRowIndex}]//td[{columnIndex}]";
             var wait = new WebDriverWait(_state.Driver, TimeSpan.FromSeconds(10));
             var gridCell = wait.Until(d => d.FindElement(By.XPath(gridCellElement)));
 
-            ((IJavaScriptExecutor)_state.Driver).ExecuteScript("arguments[0].scrollIntoView({block:'center'});", gridCell); // Scroll into view (center) to avoid sticky headers/overlays
+            ((IJavaScriptExecutor) _state.Driver).ExecuteScript("arguments[0].scrollIntoView({block:'center'});",
+                gridCell); // Scroll into view (center) to avoid sticky headers/overlays
 
             Actions actions = new Actions(_state.Driver);
-            actions.MoveToElement(gridCell).DoubleClick().Perform();// Double-click to open the event editor
+            actions.MoveToElement(gridCell).DoubleClick().Perform(); // Double-click to open the event editor
 
-            wait.Until(d => d.FindElements(By.XPath("//span[@class='k-window-title']"))); // Wait for event editor to appear
+            wait.Until(d =>
+                d.FindElements(By.XPath("//span[@class='k-window-title']"))); // Wait for event editor to appear
         }
 
         public void SelectKendoDropdownOption(string containerFor, string optionText)
         {
             //  Scope to the field (Owner uses data-container-for='ownerId' and repeat uses data-container-for ='recurrenceRule')
-            var field = _state.Wait.WaitUntilElementToBeClickable(By.XPath($"//div[@data-container-for='{containerFor}']"));  //Repeat and Owner
-            if(containerFor.Equals("recurrenceRule"))
+            var field = _state.Wait.WaitUntilElementToBeClickable(
+                By.XPath($"//div[@data-container-for='{containerFor}']")); //Repeat and Owner
+            if (containerFor.Equals("recurrenceRule"))
             {
-                var textBox = field.FindElement(By.XPath("//span[@title='Recurrence editor']//span[@class='k-dropdown-wrap k-state-default']"));
+                var textBox =
+                    field.FindElement(By.XPath(
+                        "//span[@title='Recurrence editor']//span[@class='k-dropdown-wrap k-state-default']"));
                 textBox.Click();
+
                 Actions actions = new Actions(_state.Driver);
-                actions.MoveToElement(textBox).Perform();  // hover action
+                actions.MoveToElement(textBox).SendKeys(optionText).Click().Perform(); // hover action
             }
-            
-            else if(containerFor.Equals("ownerId"))
+            else if (containerFor.Equals("ownerId"))
             {
                 var textBox = field.FindElement(By.XPath("//span[@title='No title']"));
                 textBox.Click();
+
+                Actions actions = new Actions(_state.Driver);
+                actions.MoveToElement(textBox).SendKeys(optionText).Click().Perform(); // hover action
             }
-
-            //var widget = field.FindElement(By.XPath($".//span[contains(text(),'{optionText}')]")); //Options
-
-
-            //widget.Click();
         }
 
-        public void SaveEventDetails(string eventTitle, string startDateTime, string endDateTime, string repeatOptions, string description, string owner)
+        public void SaveEventDetails(string eventTitle, string startDateTime, string endDateTime, string repeatOptions,
+            string description, string owner)
         {
             var eventTitleElement = _state.Wait.WaitUntilElementIsVisible(_eventTitle);
             eventTitleElement.Clear();
             eventTitleElement.SendKeys(eventTitle);
 
-            var startEventDateTimeElement = _state.Wait.WaitUntilElementIsVisible(By.XPath("//input[@data-bind='value:start,invisible:isAllDay']"));
+            var startEventDateTimeElement =
+                _state.Wait.WaitUntilElementIsVisible(By.XPath("//input[@data-bind='value:start,invisible:isAllDay']"));
             startEventDateTimeElement.Clear();
             startEventDateTimeElement.SendKeys(startDateTime);
 
             Thread.Sleep(3000);
-            var endEventDateTimeElement = _state.Wait.WaitUntilElementIsVisible(By.XPath("//input[@data-bind='value:end,invisible:isAllDay']"));
+            var endEventDateTimeElement =
+                _state.Wait.WaitUntilElementIsVisible(By.XPath("//input[@data-bind='value:end,invisible:isAllDay']"));
             endEventDateTimeElement.Clear();
             endEventDateTimeElement.SendKeys(endDateTime);
 
@@ -516,18 +542,21 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components
             saveButtonElement.Click();
         }
 
-        public void CancelEventDetails(string eventTitle, string startDateTime, string endDateTime, string repeatOptions, string description, string owner)
+        public void CancelEventDetails(string eventTitle, string startDateTime, string endDateTime,
+            string repeatOptions, string description, string owner)
         {
             var eventTitleElement = _state.Wait.WaitUntilElementIsVisible(_eventTitle);
             eventTitleElement.Clear();
             eventTitleElement.SendKeys(eventTitle);
 
-            var startEventDateTimeElement = _state.Wait.WaitUntilElementIsVisible(By.XPath("//input[@data-bind='value:start,invisible:isAllDay']"));
+            var startEventDateTimeElement =
+                _state.Wait.WaitUntilElementIsVisible(By.XPath("//input[@data-bind='value:start,invisible:isAllDay']"));
             startEventDateTimeElement.Clear();
             startEventDateTimeElement.SendKeys(startDateTime);
 
             Thread.Sleep(3000);
-            var endEventDateTimeElement = _state.Wait.WaitUntilElementIsVisible(By.XPath("//input[@data-bind='value:end,invisible:isAllDay']"));
+            var endEventDateTimeElement =
+                _state.Wait.WaitUntilElementIsVisible(By.XPath("//input[@data-bind='value:end,invisible:isAllDay']"));
             endEventDateTimeElement.Clear();
             endEventDateTimeElement.SendKeys(endDateTime);
 
@@ -545,7 +574,9 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components
             cancelButtonElement.Click();
         }
 
-        public void LeaveEitherOneOrAllRequiredFieldsEmpty(string? title, string? description, string? category, string? subCategory, List<string>? tags, string? serviceType, string? locationType, string? skillTradeType, string? credit, List<string>? skillExchangeTags, string? active)
+        public void LeaveEitherOneOrAllRequiredFieldsEmpty(string? title, string? description, string? category,
+            string? subCategory, List<string>? tags, string? serviceType, string? locationType, string? skillTradeType,
+            string? credit, List<string>? skillExchangeTags, string? active)
         {
             if (!string.IsNullOrWhiteSpace(title))
                 EnterTitle(title.Trim());
@@ -566,11 +597,12 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components
 
             if (!string.IsNullOrWhiteSpace(serviceType))
             {
-                SelectServiceType(serviceType);       //true = "Hourly basis", false = "One-off"
+                SelectServiceType(serviceType); //true = "Hourly basis", false = "One-off"
             }
+
             if (!string.IsNullOrWhiteSpace(locationType))
             {
-                SelectLocationType(locationType);    //true = "On-site", false = "Online"
+                SelectLocationType(locationType); //true = "On-site", false = "Online"
             }
 
             if (!string.IsNullOrWhiteSpace(skillTradeType))
@@ -616,23 +648,26 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components
         public void SaveEvent(Models.EventModel eventDetails)
         {
             // Title
+            Thread.Sleep(3000);
             var title = _state.Wait.WaitUntilElementIsVisible(_eventTitle);
             title.Clear();
             title.SendKeys(eventDetails.EventTitle);
 
             // Start/End (assumes your Kendo mask matches the provided strings)
-            var startDate = _state.Wait.WaitUntilElementIsVisible(By.XPath("//input[@data-bind='value:start,invisible:isAllDay']"));
+            var startDate =
+                _state.Wait.WaitUntilElementIsVisible(By.XPath("//input[@data-bind='value:start,invisible:isAllDay']"));
             startDate.Clear();
             startDate.SendKeys(eventDetails.StartDateTime);
 
-            var endDate = _state.Wait.WaitUntilElementIsVisible(By.XPath("//input[@data-bind='value:end,invisible:isAllDay']"));
+            var endDate =
+                _state.Wait.WaitUntilElementIsVisible(By.XPath("//input[@data-bind='value:end,invisible:isAllDay']"));
             endDate.Clear();
             endDate.SendKeys(eventDetails.EndDateTime);
 
             // All-day checkbox 
             Thread.Sleep(5000);
-             _state.Wait.WaitUntilElementIsVisible(_allDayEventCheckBox).Click();
-     
+            _state.Wait.WaitUntilElementIsVisible(_allDayEventCheckBox).Click();
+
 
             // Repeat rule
             if (!string.IsNullOrWhiteSpace(eventDetails.RepeatRule))
@@ -646,10 +681,13 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components
                 case "Daily":
                     if (!string.IsNullOrWhiteSpace(eventDetails.RepeatDays))
                     {
-                        var txt = _state.Wait.WaitUntilElementToBeClickable(_repeatEveryTextBox);
-                        txt.Clear();
-                        txt.SendKeys(eventDetails.RepeatDays.Trim());
+                        var upArrow = _state.Wait.WaitUntilElementToBeClickable(_repeatEveryDaysUpArrow);
+                        upArrow.Click();
+                        var clickOutsideTheField =
+                            _state.Wait.WaitUntilElementToBeClickable(By.XPath("//div[@name='recurrenceRule']"));
+                        clickOutsideTheField.Click(); //To click outside the field to make th
                     }
+
                     if (!string.IsNullOrWhiteSpace(eventDetails.RepeatEndOn))
                     {
                         _state.Wait.WaitUntilElementToBeClickable(_endOnRadioButton).Click();
@@ -657,101 +695,170 @@ namespace MarsAdvancedTaskPart1.Framework.Pages.Components
                         on.Clear();
                         on.SendKeys(eventDetails.RepeatEndOn.Trim());
                     }
+
                     break;
 
                 case "Weekly":
                     if (!string.IsNullOrWhiteSpace(eventDetails.RepeatWeeks))
                     {
-                        var txt = _state.Wait.WaitUntilElementToBeClickable(_repeatEveryForWeeklyTextBox);
-                        txt.Clear();
-                        txt.SendKeys(eventDetails.RepeatWeeks.Trim());
+                        var upArrow = _state.Wait.WaitUntilElementToBeClickable(_repeatEveryDaysUpArrow);
+                        upArrow.Click();
                     }
+
                     if (!string.IsNullOrWhiteSpace(eventDetails.RepeatDay))
                     {
-                        _state.Wait.WaitUntilElementToBeClickable(By.XPath($"//label[normalize-space()='{eventDetails.RepeatDay.Trim()}']")).Click();
+                        var checkBoxes = _state.Driver.FindElements(
+                            By.XPath("//label[@class='k-check']//input[@class='k-recur-weekday-checkbox']"));
+                        foreach (var checkbox in checkBoxes)
+                        {
+                            if (checkbox.Selected) // Only click if currently checked
+                            {
+                                checkbox.Click(); // Toggle to uncheck
+                            }
+                        }
+
+                        _state.Wait.WaitUntilElementToBeClickable(
+                            By.XPath($"//label[normalize-space()='{eventDetails.RepeatDay.Trim()}']")).Click();
                     }
+
                     if (!string.IsNullOrWhiteSpace(eventDetails.RepeatEndNever))
                         _state.Wait.WaitUntilElementToBeClickable(_endNeverRadioButton).Click();
                     break;
 
                 case "Monthly":
-                    {
-                        var interval = _state.Wait.WaitUntilElementToBeClickable(By.XPath("//input[@class='k-formatted-value k-recur-interval k-input']"));
-                        interval.Clear();
-                        interval.SendKeys(!string.IsNullOrWhiteSpace(eventDetails.RepeatMonths) ? eventDetails.RepeatMonths.Trim() : "1");
+                {
+                    var interval =
+                        _state.Wait.WaitUntilElementToBeClickable(
+                            By.XPath("//input[@class='k-formatted-value k-recur-interval k-input']"));
+                    interval.Clear();
+                    interval.SendKeys(!string.IsNullOrWhiteSpace(eventDetails.RepeatMonths)
+                        ? eventDetails.RepeatMonths.Trim()
+                        : "1");
 
-                        if (!string.IsNullOrWhiteSpace(eventDetails.RepeatEvery))
-                        {
-                            var repeatEvery = _state.Wait.WaitUntilElementToBeClickable(By.XPath("//span[contains(@class,'k-input')]"));
-                            repeatEvery.Click();
-                            repeatEvery.SendKeys(eventDetails.RepeatEvery.Trim());
-                        }
-                        if (!string.IsNullOrWhiteSpace(eventDetails.RepeatWeekday))
-                        {
-                            var weekDay = _state.Wait.WaitUntilElementToBeClickable(By.XPath("//span[contains(@class,'k-input')]"));
-                            weekDay.Click();
-                            weekDay.SendKeys(eventDetails.RepeatWeekday.Trim());
-                        }
-                        if (!string.IsNullOrWhiteSpace(eventDetails.RepeatEndOn))
-                        {
-                            _state.Wait.WaitUntilElementToBeClickable(By.XPath("//input[@value='until']")).Click();
-                            var on = _state.Wait.WaitUntilElementToBeClickable(By.XPath("//input[contains(@title,'On')]"));
-                            on.Clear();
-                            on.SendKeys(eventDetails.RepeatEndOn.Trim());
-                        }
+                    if (!string.IsNullOrWhiteSpace(eventDetails.RepeatEvery))
+                    {
+                        var repeatOnEvery =
+                            _state.Wait.WaitUntilElementToBeClickable(By.XPath("//input[@value='weekday']"));
+                        repeatOnEvery.Click();
+                        var repeatOn =
+                            _state.Wait.WaitUntilElementToBeClickable(By.XPath("//span[@title='Repeat on: ']"));
+                        repeatOn.Click();
+
+                        Actions actions = new Actions(_state.Driver);
+                        actions.MoveToElement(repeatOn).SendKeys(eventDetails.RepeatEvery).Click().Perform();
                     }
+
+                    if (!string.IsNullOrWhiteSpace(eventDetails.RepeatWeekday))
+                    {
+                        var day = _state.Wait.WaitUntilElementToBeClickable(By.XPath("//span[@title='Day ']"));
+                        day.Click();
+
+                        Actions actions = new Actions(_state.Driver);
+                        actions.MoveToElement(day).SendKeys(eventDetails.RepeatWeekday).Click().Perform();
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(eventDetails.RepeatEndOn))
+                    {
+                        _state.Wait.WaitUntilElementToBeClickable(By.XPath("//input[@value='until']")).Click();
+                        var on = _state.Wait.WaitUntilElementToBeClickable(By.XPath("//input[contains(@title,'On')]"));
+                        on.Clear();
+                        on.SendKeys(eventDetails.RepeatEndOn.Trim());
+                    }
+                }
                     break;
                 case "Yearly":
+                {
+                    var interval =
+                        _state.Wait.WaitUntilElementToBeClickable(
+                            By.XPath("//input[@class='k-formatted-value k-recur-interval k-input']"));
+                    interval.Clear();
+                    interval.SendKeys(!string.IsNullOrWhiteSpace(eventDetails.RepeatYears)
+                        ? eventDetails.RepeatYears.Trim()
+                        : "1");
+
+                    if (!string.IsNullOrWhiteSpace(eventDetails.YearlyRepeatOnWeekday))
+                        _state.Wait.WaitUntilElementToBeClickable(By.XPath("//input[@value='weekday']")).Click();
+
+                    // Fill dropdowns/textboxes for "Every / Weekday / Month"
+                    if (!string.IsNullOrWhiteSpace(eventDetails.YearlyEvery))
                     {
-                        var interval = _state.Wait.WaitUntilElementToBeClickable(By.XPath("//input[@class='k-formatted-value k-recur-interval k-input']"));
-                        interval.Clear();
-                        interval.SendKeys(!string.IsNullOrWhiteSpace(eventDetails.RepeatYears) ? eventDetails.RepeatYears.Trim() : "1");
+                        var repeatOn = _state.Wait.WaitUntilElementToBeClickable(By.XPath(
+                            "//span[contains(@title,'Repeat on:')]//span[@class='k-dropdown-wrap k-state-default']//span[@class='k-icon k-i-arrow-60-down']"));
+                        repeatOn.Click();
 
-                        if (!string.IsNullOrWhiteSpace(eventDetails.YearlyRepeatOnWeekday))
-                            _state.Wait.WaitUntilElementToBeClickable(By.XPath("//input[@value='weekday']")).Click();
+                        Actions actions = new Actions(_state.Driver);
+                        actions.MoveToElement(repeatOn).SendKeys(eventDetails.YearlyEvery).Click().Perform();
 
-
-
-                        // Fill dropdowns/textboxes for "Every / Weekday / Month"
-                        if (!string.IsNullOrWhiteSpace(eventDetails.YearlyEvery))
-                        {
-                            var dd = _state.Wait.WaitUntilElementIsVisible(By.XPath("//span[contains(@class,'k-input')]"));
-                            dd.Click();
-                            dd.SendKeys(eventDetails.YearlyEvery.Trim());
-                        }
-
-                        if (!string.IsNullOrWhiteSpace(eventDetails.YearlyWeekday))
-                        {
-                            var dd = _state.Wait.WaitUntilElementIsVisible(By.XPath("//span[contains(@class,'k-input')]"));
-                            dd.Click();
-                            dd.SendKeys(eventDetails.YearlyWeekday.Trim());
-                        }
-
-                        if (!string.IsNullOrWhiteSpace(eventDetails.YearlyMonth))
-                        {
-                            var dd = _state.Wait.WaitUntilElementIsVisible(By.XPath("//span[contains(@class,'k-input')]"));
-                            dd.Click();
-                            dd.SendKeys(eventDetails.YearlyMonth.Trim());
-                        }
-
-                        // End after N occurrences
-                        if (!string.IsNullOrWhiteSpace(eventDetails.YearlyCount))
-                        {
-                            _state.Wait.WaitUntilElementToBeClickable(By.XPath("//input[@value='count']")).Click();
-                            var count = _state.Wait.WaitUntilElementToBeClickable(By.XPath("//input[@class='k-formatted-value k-recur-count k-input']"));
-                            count.Clear();
-                            count.SendKeys(eventDetails.YearlyCount.Trim());
-                        }
-                        break;
                     }
+
+                    if (!string.IsNullOrWhiteSpace(eventDetails.YearlyWeekday))
+                    {
+                        var day = _state.Wait.WaitUntilElementToBeClickable(
+                            By.XPath("//span[@title='']//span[@class='k-dropdown-wrap k-state-default']"));
+                        day.Click();
+
+                        Actions actions = new Actions(_state.Driver);
+                        actions.MoveToElement(day).SendKeys(eventDetails.YearlyWeekday).Click().Perform();
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(eventDetails.YearlyMonth))
+                    {
+                        var month = _state.Wait.WaitUntilElementIsVisible(By.XPath(
+                            $"//span[@class='k-dropdown-wrap k-state-default']//span[@class='k-input'][normalize-space()='{eventDetails.YearlyMonth}']"));
+                        month.Click();
+
+                        Actions actions = new Actions(_state.Driver);
+                        actions.MoveToElement(month).SendKeys(eventDetails.YearlyMonth).Click().Perform();
+                    }
+
+                    // End after N occurrences
+                    if (!string.IsNullOrWhiteSpace(eventDetails.YearlyCount))
+                    {
+                        _state.Wait.WaitUntilElementToBeClickable(By.XPath("//input[@value='count']")).Click();
+                        var count = _state.Wait.WaitUntilElementToBeClickable(
+                            By.XPath("//input[@class='k-formatted-value k-recur-count k-input']"));
+                        count.Clear();
+                        count.SendKeys(eventDetails.YearlyCount.Trim());
+                    }
+
+                    break;
+                }
             }
-                   if (!string.IsNullOrWhiteSpace(eventDetails.Description))
-                        _state.Wait.WaitUntilElementIsVisible(_descriptionTextBoxInsideEvent).SendKeys(eventDetails.Description.Trim());
 
-                    if (!string.IsNullOrWhiteSpace(eventDetails.Owner))
-                        SelectKendoDropdownOption("ownerId", eventDetails.Owner.Trim());
+            if (!string.IsNullOrWhiteSpace(eventDetails.Description))
+                _state.Wait.WaitUntilElementIsVisible(_descriptionTextBoxInsideEvent)
+                    .SendKeys(eventDetails.Description.Trim());
 
-                    _state.Wait.WaitUntilElementToBeClickable(_saveEventButton).Click();
+            if (!string.IsNullOrWhiteSpace(eventDetails.Owner))
+                SelectKendoDropdownOption("ownerId", eventDetails.Owner.Trim());
+
+            _state.Wait.WaitUntilElementToBeClickable(_saveEventButton).Click();
+        }
+
+        public string GetEventFromCalendar()
+        {
+            var calendarContent =
+                _state.Wait.WaitUntilElementIsVisible(By.XPath("//div[@class='k-scheduler-content']"));
+            return calendarContent.Text;
+        }
+
+        public void EditShareSkill(string title, string description, string category,string subCategory)
+        {
+            var enterTitleTextBox = _state.Wait.WaitUntilElementToBeClickable(_titleTextField);
+            enterTitleTextBox.Clear();
+            enterTitleTextBox.SendKeys(title);
+
+            var enterDescriptionTextBox = _state.Wait.WaitUntilElementToBeClickable(_descriptionTextField);
+            enterDescriptionTextBox.Clear();
+            enterDescriptionTextBox.SendKeys(description);
+
+            var selectCategory = _state.Wait.WaitUntilElementToBeClickable(_selectCategory);
+            SelectElement categoryDropDown = new SelectElement(selectCategory);
+            categoryDropDown.SelectByText(category);
+
+            var selectSubCategory = _state.Wait.WaitUntilElementToBeClickable(_selectSubCategory);
+            SelectElement subCategoryDropDown = new SelectElement(selectSubCategory);
+            subCategoryDropDown.SelectByText(subCategory);
         }
     }
 

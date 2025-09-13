@@ -1,10 +1,4 @@
-﻿using OpenQA.Selenium.BiDi.Communication;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Edge;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium;
-
-namespace MarsAdvancedTaskPart1.Framework.Drivers
+﻿namespace MarsAdvancedTaskPart1.Framework.Drivers
 {
     using MarsAdvancedTaskPart1.Framework.Models;
     using OpenQA.Selenium;

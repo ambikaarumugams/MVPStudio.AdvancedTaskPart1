@@ -24,7 +24,6 @@ namespace MarsAdvancedTaskPart1.Framework.Helpers
         }
 
         //Languages data provider methods
-
         public static IEnumerable<TestCaseData> AddLanguagesValidData()
         {
             var languageModel = JsonHelper.ReadJson<LanguageModel>("TestData/AddLanguages_ValidInput.json");
@@ -750,6 +749,35 @@ namespace MarsAdvancedTaskPart1.Framework.Helpers
             yield return new TestCaseData(eventModel).SetCategory("shareSkill");
         }
 
+        public static IEnumerable<TestCaseData> ShareSkill_EventDetailsWeekly()
+        {
+            var eventModel = JsonHelper.ReadJson<EventModel>("TestData/ShareSkill_EventDetailsForWeekly.json");
+            yield return new TestCaseData(eventModel).SetCategory("shareSkill");
+        }
+
+        public static IEnumerable<TestCaseData> ShareSkill_EventDetailsMonthly()
+        {
+            var eventModel = JsonHelper.ReadJson<EventModel>("TestData/ShareSkill_EventDetailsForMonthly.json");
+            yield return new TestCaseData(eventModel).SetCategory("shareSkill");
+        }
+
+        public static IEnumerable<TestCaseData> ShareSkill_EventDetailsForYearly()
+        {
+            var eventModel = JsonHelper.ReadJson<EventModel>("TestData/ShareSkill_EventDetailsForYearly.json");
+            yield return new TestCaseData(eventModel).SetCategory("shareSkill");
+        }
+
+        public static IEnumerable<TestCaseData> ManageListings_ViewAddShareSkillDetails()
+        {
+            var shareSkillModel = JsonHelper.ReadJson<ShareSkillModel>("TestData/ManageListings_ViewAddShareSkillDetails.json");
+            yield return new TestCaseData(shareSkillModel).SetCategory("shareSkill");
+        }
+
+        public static IEnumerable<TestCaseData> ManageListings_EditShareSkill()
+        {
+            var shareSkillModel = JsonHelper.ReadJson<ShareSkillModel>("TestData/ManageListings_EditShareSkill.json");
+            yield return new TestCaseData(shareSkillModel).SetCategory("shareSkill");
+        }
     }
 }
 

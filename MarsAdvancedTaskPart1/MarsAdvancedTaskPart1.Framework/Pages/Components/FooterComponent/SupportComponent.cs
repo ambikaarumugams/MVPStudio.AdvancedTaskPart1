@@ -1,10 +1,5 @@
 ﻿using MarsAdvancedTaskPart1.Framework.Helpers;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MarsAdvancedTaskPart1.Framework.Pages.Components.FooterComponent
 {

@@ -5,6 +5,7 @@ using MarsAdvancedTaskPart1.Framework.Pages.Components.NavigationMenuComponent.P
 
 namespace MarsAdvancedTaskPart1.Test.Tests
 {
+    [Parallelizable(ParallelScope.All)]
     [TestFixture]
     public class LanguagesTest : TestBase.TestBase
     {
@@ -174,8 +175,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 expectedMessages.Add(lang.Validation.ExpectedMessage);
                 State.LanguagesCleanUp.Add(lang.Language); //Add languages to clean up
             }
-
-            foreach (string? expected in expectedMessages)
+            foreach (var expected in expectedMessages)
             {
                 State.Assert.AssertMultipleContain(actualMessages, expected);
             }
@@ -240,7 +240,6 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 actualMessages.Add(errorMessage);
                 expectedMessages.Add(lang.Validation.ExpectedMessage);
             }
-
             foreach (string? expected in expectedMessages)
             {
                 State.Assert.ListContainsString(actualMessages, expected);
@@ -280,12 +279,10 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 _languagesComponent.ClickCancelUpdate();
                 expectedMessages.Add(lang.Validation.ExpectedMessage);
             }
-
             foreach (var expected in expectedMessages)
             {
                 State.Assert.ListContainsString(actualMessages, expected);
             }
-
             _languagesComponent.ClickSignOutButton();
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
         }
@@ -320,12 +317,10 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 actualMessages.Add(deleteErrorMessage);
                 expectedMessages.Add(lang.Validation.ExpectedMessage);
             }
-
             foreach (var expected in expectedMessages)
             {
                 State.Assert.ListContainsString(actualMessages, expected);
             }
-
             _languagesComponent.ClickSignOutButton();
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
         }
@@ -349,7 +344,6 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 var actual = _languagesComponent.IsLanguageNotAdded(lang.Language);
                 actualMessage.Add(actual);
             }
-
             State.Assert.IsTrue(actualMessage);
         }
 
@@ -382,11 +376,10 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 var actual = _languagesComponent.IsLanguageNotUpdated(lang.LanguageToUpdate);
                 actualMessage.Add(actual);
             }
-
             State.Assert.IsTrue(actualMessage);
         }
 
-        [Test,TestCaseSource(typeof(TestDataProvider),nameof(TestDataProvider.LeaveEitherOneOrAllTheFieldsAreEmptyForAddLanguage))]
+        [Test, TestCaseSource(typeof(TestDataProvider), nameof(TestDataProvider.LeaveEitherOneOrAllTheFieldsAreEmptyForAddLanguage))]
         public void AddLanguage_LeaveEitherOneFieldOrAllTheFieldsAreEmpty(LanguageModel languagesModel)
         {
             List<string> actualMessages = new();
@@ -408,14 +401,11 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 actualMessages.Add(message);
                 _languagesComponent.ClickCancelButton();
                 expectedMessages.Add(lang.Validation.ExpectedMessage);
-                //State.LanguagesCleanUp.Add(lang.Language); //Add languages to clean up
             }
-
             State.Assert.AssertListContainsAll(actualMessages, expectedMessages);
-
         }
 
-        [Test,TestCaseSource(typeof(TestDataProvider),nameof(TestDataProvider.LeaveEitherOneOrAllTheFieldsAreEmptyForUpdateLanguage))]
+        [Test, TestCaseSource(typeof(TestDataProvider), nameof(TestDataProvider.LeaveEitherOneOrAllTheFieldsAreEmptyForUpdateLanguage))]
         public void UpdateLanguage_LeaveEitherOneFieldOrAllTheFieldsAreEmpty(LanguageModel languagesModel)
         {
             List<string> actualMessages = new();
@@ -447,7 +437,6 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 _languagesComponent.ClickCancelUpdate();
                 expectedMessages.Add(lang.Validation.ExpectedMessage);
             }
-
             State.Assert.AssertListContainsAll(actualMessages, expectedMessages);
         }
 
@@ -478,7 +467,6 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 expectedMessages.Add(lang.Validation.ExpectedMessage);
                 State.LanguagesCleanUp.Add(lang.Language); //Add languages to clean up
             }
-
             State.Assert.AssertListContainsAll(actualMessages, expectedMessages);
         }
 
@@ -518,11 +506,10 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 expectedMessages.Add(lang.Validation.ExpectedMessage);
                 State.LanguagesCleanUp.Add(lang.LanguageToUpdate); //Add languages to clean up
             }
-
             State.Assert.AssertListContainsAll(actualMessages, expectedMessages);
         }
 
-        [Test,TestCaseSource(typeof(TestDataProvider), nameof(TestDataProvider.AddLanguageWithExistingLanguageTestData))]
+        [Test, TestCaseSource(typeof(TestDataProvider), nameof(TestDataProvider.AddLanguageWithExistingLanguageTestData))]
         public void AddLanguageWithExistingLanguageTest(LanguageModel languagesModel)
         {
             var actualMessages = new List<(string Message, string Type)>();
@@ -540,13 +527,10 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             {
                 _languagesComponent.AddNewLanguageAndLevel(lang.Language, lang.LanguageLevel);
 
-                // Suppose this returns a tuple: (text, type)
                 var (messageText, messageType) = _languagesComponent.GetToastMessage();
-
                 actualMessages.Add((messageText, messageType));
                 if (string.Equals(messageType, "SUCCESS", StringComparison.OrdinalIgnoreCase))
                 {
-                    // Positive row → add to cleanup, no message assertion
                     State.LanguagesCleanUp.Add(lang.Language);
                 }
                 else if (string.Equals(messageType, "ERROR", StringComparison.OrdinalIgnoreCase) &&
@@ -557,8 +541,6 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                     expectedMessages.Add(expected);
                 }
             }
-
-            // Assert only if we collected negative rows
             if (expectedMessages.Count > 0)
             {
                 State.Assert.AssertListContainsAll(validationMessage, expectedMessages);
@@ -583,13 +565,10 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             {
                 _languagesComponent.AddNewLanguageAndLevel(lang.Language, lang.LanguageLevel);
 
-                // Suppose this returns a tuple: (text, type)
                 var (messageText, messageType) = _languagesComponent.GetToastMessage();
-
                 actualMessages.Add((messageText, messageType));
                 if (string.Equals(messageType, "SUCCESS", StringComparison.OrdinalIgnoreCase))
                 {
-                    // Positive row → add to cleanup, no message assertion
                     State.LanguagesCleanUp.Add(lang.Language);
                 }
                 else if (string.Equals(messageType, "ERROR", StringComparison.OrdinalIgnoreCase) &&
@@ -599,8 +578,6 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                     var expected = lang.Validation?.ExpectedMessage ?? string.Empty;
                     expectedMessages.Add(expected);
                 }
-
-                // Assert only if we collected negative rows
                 if (expectedMessages.Count > 0)
                 {
                     State.Assert.AssertListContainsAll(validationMessage, expectedMessages);

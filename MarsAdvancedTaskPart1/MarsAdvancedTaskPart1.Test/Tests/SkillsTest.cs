@@ -5,6 +5,7 @@ using MarsAdvancedTaskPart1.Framework.Pages.Components.NavigationMenuComponent.P
 
 namespace MarsAdvancedTaskPart1.Test.Tests
 {
+    [Parallelizable(ParallelScope.All)]
     [TestFixture]
     public class SkillsTest : TestBase.TestBase
     {

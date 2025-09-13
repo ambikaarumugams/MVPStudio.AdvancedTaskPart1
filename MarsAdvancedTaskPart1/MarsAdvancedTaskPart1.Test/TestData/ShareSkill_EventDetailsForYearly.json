@@ -1,15 +1,15 @@
 {
-  "EventTitle": "Annual Planning",
+  "EventTitle": "SQL",
   "StartDateTime": "13/05/2025 09:00 AM",
   "EndDateTime": "13/05/2025 05:00 PM",
   "AllDay": "true",
   "RepeatRule": "Yearly",
   "RepeatYears": "1",
   "YearlyRepeatOnWeekday": "true",
-  "YearlyEvery": "Second",
+  "YearlyEvery": "last",
   "YearlyWeekday": "Monday",
   "YearlyMonth": "May",
   "YearlyCount": "3",
-  "Description": "Annual strategy and planning meeting",
-  "Owner": "Alex"
+  "Description": "Database testing",
+  "Owner": "Bob"
 }

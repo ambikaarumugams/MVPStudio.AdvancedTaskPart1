@@ -2,7 +2,6 @@
 using MarsAdvancedTaskPart1.Framework.Helpers;
 using MarsAdvancedTaskPart1.Framework.Models;
 using MarsAdvancedTaskPart1.Framework.Pages.Components;
-using MarsAdvancedTaskPart1.Framework.Pages.Components.NavigationMenuComponent.ProfileComponent.ProfileMenuTabComponent;
 
 namespace MarsAdvancedTaskPart1.Test.Tests
 {
@@ -13,6 +12,8 @@ namespace MarsAdvancedTaskPart1.Test.Tests
         [Test, TestCaseSource(typeof(TestDataProvider), nameof(TestDataProvider.ShareSkill_UsingSkillExchangeValidInput))]
         public void ShareSkills_UsingSkillExchangeValidInput(ShareSkillModel shareSkillModel)
         {
+            var args = TestContext.CurrentContext.Test.Arguments;
+            Console.WriteLine($"First arg type: {args[0]?.GetType().Name}");
             List<string> actualMessages = new();
             List<string?> expectedMessages = new();
 
@@ -37,7 +38,6 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 {
                     _shareSkillComponent.AddTag(tag);
                 }
-
                 _shareSkillComponent.SelectServiceType(skill.ServiceType);
                 _shareSkillComponent.SelectLocationType(skill.LocationType);
 
@@ -52,14 +52,13 @@ namespace MarsAdvancedTaskPart1.Test.Tests
 
                 foreach (var workSample in skill.WorkSamples)
                 {
-                    string fullPath = Path.GetFullPath(workSample);
+                    var fullPath = Path.GetFullPath(workSample);
                     if (!File.Exists(fullPath))
                     {
                         throw new FileNotFoundException("File not found:" + fullPath);
                     }
                     _shareSkillComponent.UploadWorkSample(fullPath);
                 }
-
                 _shareSkillComponent.SetActiveStatus(skill.Active);
                 _shareSkillComponent.ClickSave();
                 var successMessage = _shareSkillComponent.GetSuccessMessage();
@@ -167,9 +166,10 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 {
                     _shareSkillComponent.AddSkillExchangeTag(skillTag);
                 }
+
                 foreach (var workSample in skill.WorkSamples)
                 {
-                    string fullPath = Path.GetFullPath(workSample);
+                    var fullPath = Path.GetFullPath(workSample);
                     if (!File.Exists(fullPath))
                     {
                         throw new FileNotFoundException("File not found:" + fullPath);
@@ -190,7 +190,6 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 expectedMessages.Add(skill.ExpectedToastMessage);
                 expectedFieldMessages.Add(skill.ExpectedFieldErrorMessage);
             }
-
             State.Assert.ListsMatch(actualMessages, expectedMessages);
             State.Assert.AssertListContainsAll(actualFieldMessages, expectedFieldMessages);
         }
@@ -397,6 +396,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 {
                     _shareSkillComponent.AddSkillExchangeTag(skillTag);
                 }
+
                 _shareSkillComponent.SetActiveStatus(skill.Active);
                 _shareSkillComponent.ClickSave();
                 //var successMessage = _shareSkillComponent.GetSuccessMessage(); //Not able to capture the success message
@@ -559,15 +559,17 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 {
                     _shareSkillComponent.AddSkillExchangeTag(skillTag);
                 }
+
                 foreach (var workSample in skill.WorkSamples)
                 {
-                    string fullPath = Path.GetFullPath(workSample);
+                    var fullPath = Path.GetFullPath(workSample);
                     if (!File.Exists(fullPath))
                     {
                         throw new FileNotFoundException("File not found:" + fullPath);
                     }
                     _shareSkillComponent.UploadWorkSample(fullPath);
                 }
+
                 _shareSkillComponent.SetActiveStatus(skill.Active);
                 _shareSkillComponent.ClickSave();
                 var errorMessage = _shareSkillComponent.GetErrorMessage();
@@ -582,7 +584,6 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 expectedMessages.Add(skill.ExpectedToastMessage);
                 expectedFieldMessages.Add(skill.ExpectedFieldErrorMessage);
             }
-
             State.Assert.ListsMatch(actualMessages, expectedMessages);
             State.Assert.AssertListContainsAll(actualFieldMessages, expectedFieldMessages);
         }
@@ -683,7 +684,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 actualMessages.Add(successMessage);
                 expectedMessages.Add(skill.ExpectedToastMessage);
                 var addedSkillFromManageListings = _shareSkillComponent.GetRecentlyAddedSkillDescriptionFromManageListings();
-                    Console.WriteLine($"Added skill from manage listings:{addedSkillFromManageListings}");
+                Console.WriteLine($"Added skill from manage listings:{addedSkillFromManageListings}");
                 actualMessages.Add(addedSkillFromManageListings);
                 expectedMessages.Add(skill.Description);
                 State.ShareSkillCleanUp.Add(skill.Title);
@@ -716,7 +717,6 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 {
                     _shareSkillComponent.AddTag(tag);
                 }
-
                 _shareSkillComponent.SelectServiceType(skill.ServiceType);
                 _shareSkillComponent.SelectLocationType(skill.LocationType);
 
@@ -728,7 +728,6 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 {
                     _shareSkillComponent.AddSkillExchangeTag(skillTag);
                 }
-
                 _shareSkillComponent.SetActiveStatus(skill.Active);
                 _shareSkillComponent.ClickSave();
                 var successMessage = _shareSkillComponent.GetSuccessMessage();
@@ -776,7 +775,6 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 {
                     _shareSkillComponent.AddTag(tag);
                 }
-
                 _shareSkillComponent.SelectServiceType(skill.ServiceType);
                 _shareSkillComponent.SelectLocationType(skill.LocationType);
 
@@ -845,6 +843,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 {
                     _shareSkillComponent.AddSkillExchangeTag(skillTag);
                 }
+
                 _shareSkillComponent.SetActiveStatus(skill.Active);
                 _shareSkillComponent.ClickSave();
                 //var successMessage = _shareSkillComponent.GetSuccessMessage(); //Not able to capture the success message
@@ -901,6 +900,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 {
                     _shareSkillComponent.AddSkillExchangeTag(skillTag);
                 }
+
                 _shareSkillComponent.SetActiveStatus(skill.Active);
                 _shareSkillComponent.ClickSave();
                 //var successMessage = _shareSkillComponent.GetSuccessMessage(); //Not able to capture the success message
@@ -957,6 +957,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 {
                     _shareSkillComponent.AddSkillExchangeTag(skillTag);
                 }
+
                 _shareSkillComponent.SetActiveStatus(skill.Active);
                 _shareSkillComponent.ClickSave();
                 //var successMessage = _shareSkillComponent.GetSuccessMessage(); //Not able to capture the success message
@@ -1054,7 +1055,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 }
 
                 _shareSkillComponent.SelectServiceType(skill.ServiceType);
-                expectedMessages.Add($"SeriveType: {skill.ServiceType}");
+                expectedMessages.Add($"ServiceType: {skill.ServiceType}");
                 _shareSkillComponent.SelectLocationType(skill.LocationType);
                 expectedMessages.Add($"LocationType: {skill.LocationType}");
 
@@ -1066,6 +1067,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 {
                     _shareSkillComponent.AddSkillExchangeTag(skillTag);
                 }
+
                 _shareSkillComponent.SetActiveStatus(skill.Active);
                 _shareSkillComponent.ClickSave();
                 //var successMessage = _shareSkillComponent.GetSuccessMessage(); //Not able to capture the success message
@@ -1090,13 +1092,13 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             List<string?> expectedMessages = new();
             List<string?> shareSkillCleanUp = new();
 
-            State.Test.Log(Status.Info, "Starting add skills with valid input...");
+            State.Test.Log(Status.Info, "Starting add event details inside the calendar...");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
             _shareSkillComponent = new ShareSkillComponent(State);
             _shareSkillComponent.NavigateToTheProfilePage();
 
-            State.Test.Log(Status.Info, "Enter the skill and level");
+            State.Test.Log(Status.Info, "Enter share skill details and event details...");
 
             foreach (var skill in shareSkillModel.ShareSkills)
             {
@@ -1117,7 +1119,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
 
                 _shareSkillComponent.ClickCalendarAndSelectCurrentDate();
                 _shareSkillComponent.ClickWorkWeekLink();
-                _shareSkillComponent.OpenEventSlot(3,2);
+                _shareSkillComponent.OpenEventSlot(3,2);  
                 foreach (var calendarEvent in skill.Events)
                 {
                     _shareSkillComponent.SaveEventDetails(calendarEvent.Title, calendarEvent.StartDateTime, calendarEvent.EndDateTime,calendarEvent.Repeat, calendarEvent.Description, calendarEvent.Owner);
@@ -1129,12 +1131,13 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 {
                     _shareSkillComponent.AddSkillExchangeTag(skillTag);
                 }
+
                 _shareSkillComponent.SetActiveStatus(skill.Active);
                 _shareSkillComponent.ClickSave();
                 var successMessage = _shareSkillComponent.GetSuccessMessage();
                 Console.WriteLine($"Message:{successMessage}");
                 var errorMessage = _shareSkillComponent.GetWorkSamplesErrorText();
-                Console.WriteLine($"Error message for worksamples:{errorMessage}");
+                Console.WriteLine($"Error message for work samples:{errorMessage}");
                 actualMessages.Add(successMessage);
                 expectedMessages.Add(skill.ExpectedToastMessage);
                 Thread.Sleep(6000);
@@ -1142,7 +1145,6 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             }
             State.Assert.AssertListContainsAll(actualMessages, expectedMessages);
         }
-
 
         [Test, TestCaseSource(typeof(TestDataProvider), nameof(TestDataProvider.ShareSkill_LeaveEitherOneOrAllTheRequiredFieldsAreEmpty))]
         public void ShareSkills_LeaveEitherOneOrAllTheRequiredFieldsAreEmpty(ShareSkillModel shareSkillModel)
@@ -1164,20 +1166,19 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 _shareSkillComponent.ScrollToCenterOfThePage();
                 _shareSkillComponent.ClickShareSkill();
 
-                // Pass values with named arguments; pass active: null to skip setting it
+                // Pass values with named arguments
                 _shareSkillComponent.LeaveEitherOneOrAllRequiredFieldsEmpty(
                     title: skill.Title,
-            description: skill.Description,
-            category: skill.Category,
-            subCategory: skill.SubCategory,
-            tags: skill.Tags,
-            serviceType: skill.ServiceType,
-            locationType: skill.LocationType,
-            skillTradeType: skill.SkillTradeType,
-            skillExchangeTags: skill.SkillExchangeTags,
-            credit: skill.Credit,
-            active: skill.Active
-                );
+                    description: skill.Description,
+                    category: skill.Category,
+                    subCategory: skill.SubCategory,
+                    tags: skill.Tags,
+                    serviceType: skill.ServiceType,
+                    locationType: skill.LocationType,
+                    skillTradeType: skill.SkillTradeType,
+                    skillExchangeTags: skill.SkillExchangeTags,
+                    credit: skill.Credit,
+                    active: skill.Active);
 
                 _shareSkillComponent.ClickSave();
 
@@ -1220,7 +1221,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 if (!hasAnyNonEmptySkillTag)
                 {
                     var skillExchangeTagsError = _shareSkillComponent.GetTextOfFieldErrorMessageForSkillTags();    
-                    Console.WriteLine($"Skilltags field error:{skillExchangeTagsError}");
+                    Console.WriteLine($"Skill tags field error:{skillExchangeTagsError}");
                     actualFieldMessages.Add(skillExchangeTagsError);
                 }
                 expectedMessages.Add(skill.ExpectedToastMessage);
@@ -1285,7 +1286,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             List<string> actualMessages = new();
             List<string?> expectedMessages = new();
 
-            State.Test.Log(Status.Info, "Starting add skills using skill exchange...");
+            State.Test.Log(Status.Info, "Starting add share skills with work samples...");
             State.Test.Log(Status.Info, "Enter the Username and Password");
             State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
             _shareSkillComponent = new ShareSkillComponent(State);
@@ -1321,7 +1322,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
 
                 foreach (var workSample in skill.WorkSamples)
                 {
-                    string fullPath = Path.GetFullPath(workSample);
+                    var fullPath = Path.GetFullPath(workSample);
                     if (!File.Exists(fullPath))
                     {
                         throw new FileNotFoundException("File not found:" + fullPath);
@@ -1334,7 +1335,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
                 var successMessage = _shareSkillComponent.GetSuccessMessage();
                 Console.WriteLine($"Message:{successMessage}");
                 var errorMessage = _shareSkillComponent.GetWorkSamplesErrorText();
-                Console.WriteLine($"Error message for worksamples:{errorMessage}");
+                Console.WriteLine($"Error message for work samples:{errorMessage}");
                 actualMessages.Add(successMessage);
                 expectedMessages.Add(skill.ExpectedToastMessage);
                 Thread.Sleep(6000);
@@ -1356,51 +1357,80 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             State.Test.Log(Status.Info, "Enter the event details...");
             State.Test.Log(Status.Info, $"Creating event: {eventDetails.EventTitle}");
 
-
             _shareSkillComponent.ClickShareSkill();
             _shareSkillComponent.ClickCalendarAndSelectCurrentDate();
-
             _shareSkillComponent.OpenEventSlot(3, 4);
 
             _shareSkillComponent.SaveEvent(eventDetails);
-
-            Console.WriteLine($"ExpectedMessage:{eventDetails.ExpectedMessageForEvent}, but event hasn't saved. ");
+            Console.WriteLine($"ExpectedMessage:{eventDetails.ExpectedMessageForEvent}, Actual:Event hasn't saved. ");
+            var actual = _shareSkillComponent.GetEventFromCalendar();
+            State.Assert.IsNotNullOrEmpty(actual,"Event hasn't saved inside the calendar....");
         }
 
+        [Test, TestCaseSource(typeof(TestDataProvider), nameof(TestDataProvider.ShareSkill_EventDetailsWeekly))]
+        public void ShareSkill_EventDetailsWeekly(EventModel eventDetails)
+        {
+            State.Test.Log(Status.Info, "Starting add events in skill share...");
+            State.Test.Log(Status.Info, "Enter the Username and Password");
+            State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
+            _shareSkillComponent = new ShareSkillComponent(State);
+            _shareSkillComponent.NavigateToTheProfilePage();
 
+            State.Test.Log(Status.Info, "Enter the event details...");
+            State.Test.Log(Status.Info, $"Creating event: {eventDetails.EventTitle}");
 
+            _shareSkillComponent.ClickShareSkill();
+            _shareSkillComponent.ClickCalendarAndSelectCurrentDate();
+            _shareSkillComponent.OpenEventSlot(4, 4);
 
+            _shareSkillComponent.SaveEvent(eventDetails);
+            Console.WriteLine($"ExpectedMessage:{eventDetails.ExpectedMessageForEvent}, Actual:Event hasn't saved. ");
+            var actual = _shareSkillComponent.GetEventFromCalendar();
+            State.Assert.IsNotNullOrEmpty(actual, "Event hasn't saved inside the calendar....");
+        }
 
+        [Test, TestCaseSource(typeof(TestDataProvider), nameof(TestDataProvider.ShareSkill_EventDetailsMonthly))]
+        public void ShareSkill_EventDetailsMonthly(EventModel eventDetails)
+        {
+            State.Test.Log(Status.Info, "Starting add events in skill share...");
+            State.Test.Log(Status.Info, "Enter the Username and Password");
+            State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
+            _shareSkillComponent = new ShareSkillComponent(State);
+            _shareSkillComponent.NavigateToTheProfilePage();
 
+            State.Test.Log(Status.Info, "Enter the event details...");
+            State.Test.Log(Status.Info, $"Creating event: {eventDetails.EventTitle}");
 
+            _shareSkillComponent.ClickShareSkill();
+            _shareSkillComponent.ClickCalendarAndSelectCurrentDate();
+            _shareSkillComponent.OpenEventSlot(4, 4);
 
+            _shareSkillComponent.SaveEvent(eventDetails);
+            Console.WriteLine($"ExpectedMessage:{eventDetails.ExpectedMessageForEvent}, Actual:Event hasn't saved. ");
+            var actual = _shareSkillComponent.GetEventFromCalendar();
+            State.Assert.IsNotNullOrEmpty(actual, "Event hasn't saved inside the calendar....");
+        }
 
+        [Test, TestCaseSource(typeof(TestDataProvider), nameof(TestDataProvider.ShareSkill_EventDetailsForYearly))]
+        public void ShareSkill_EventDetailsForYearly(EventModel eventDetails)
+        {
+            State.Test.Log(Status.Info, "Starting add events in skill share...");
+            State.Test.Log(Status.Info, "Enter the Username and Password");
+            State.SignInComponent.SignIn(State.LoginData.Username, State.LoginData.Password);
+            _shareSkillComponent = new ShareSkillComponent(State);
+            _shareSkillComponent.NavigateToTheProfilePage();
 
+            State.Test.Log(Status.Info, "Enter the event details...");
+            State.Test.Log(Status.Info, $"Creating event: {eventDetails.EventTitle}");
+            
+            _shareSkillComponent.ClickShareSkill();
+            _shareSkillComponent.ClickCalendarAndSelectCurrentDate();
+            _shareSkillComponent.OpenEventSlot(4, 4);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            _shareSkillComponent.SaveEvent(eventDetails);
+            Console.WriteLine($"ExpectedMessage:{eventDetails.ExpectedMessageForEvent}, Actual:Event hasn't saved. ");
+            var actual = _shareSkillComponent.GetEventFromCalendar();
+            State.Assert.IsNotNullOrEmpty(actual, "Event hasn't saved inside the calendar....");
+        }
     }
 }

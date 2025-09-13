@@ -1,0 +1,39 @@
+{
+  "ShareSkills": [
+    {
+      "Title": "Test Automation",
+      "Description": "Test automation using Selenium, NUnit and Reqnroll",
+      "Category": "Test Automation",
+      "Subcategory": "Selenium",
+      "Tags": [ "Selenium", "BDD", "Reqnroll" ],
+      "ServiceType": "0",
+      "LocationType": "0",
+      "Events": [
+        {
+          "Title": "Mon Slot",
+          "StartDateTime": "9/30/2025 10:30 AM",
+          "EndDateTime": "9/30/2025 05:00 PM",
+          "Repeat": "Never",
+          "Description": "Automation office hour",
+          "Owner": "Alex"
+        }
+      ],
+      "SkillTradeType": "Skill-exchange",
+      "Credit": null,
+      "SkillExchangeTags": [ "Jmeter", "Performance Testing" ],
+      "WorkSamples": [ "TestData\\TestAutomation.jpg" ],
+      "Active": true,
+      "ExpectedToastMessage": "Service Listing Added successfully",
+      "ExpectedToastContains": null
+    }
+  ],
+  "EditSkills": [
+    {
+      "Title": "Updated Automation",
+      "Description": "Updated description for automation skill",
+      "Category": "Test Automation",
+      "Subcategory": "Performance Testing",
+      "ExpectedToastMessage": "Service Listing Updated successfully"
+    }
+  ]
+}

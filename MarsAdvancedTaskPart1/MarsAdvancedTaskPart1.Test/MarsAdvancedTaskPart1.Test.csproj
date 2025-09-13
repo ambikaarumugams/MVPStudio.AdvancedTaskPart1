@@ -54,6 +54,7 @@
     <None Remove="TestData\DeleteLanguages_ValidInput.json" />
     <None Remove="TestData\DeleteLanguage_SessionExpired.json" />
     <None Remove="TestData\LoginTestData.json" />
+    <None Remove="TestData\ManageListings_EditShareSkill.json" />
     <None Remove="TestData\SampleTextFile.txt" />
     <None Remove="TestData\SampleWord.docx" />
     <None Remove="TestData\Settings.json" />
@@ -62,6 +63,9 @@
     <None Remove="TestData\ShareSkill_BoundaryCheckForDescriptionLessThan600Characters.json" />
     <None Remove="TestData\ShareSkill_BoundaryCheckForDescriptionMoreThan600Characters.json" />
     <None Remove="TestData\ShareSkill_EventDetailsForDaily.json" />
+    <None Remove="TestData\ShareSkill_EventDetailsForMonthly.json" />
+    <None Remove="TestData\ShareSkill_EventDetailsForWeekly.json" />
+    <None Remove="TestData\ShareSkill_EventDetailsForYearly.json" />
     <None Remove="TestData\ShareSkill_InvalidDescriptionStringStartsWithNumbers.json" />
     <None Remove="TestData\ShareSkill_InvalidDescriptionWithNumbers.json" />
     <None Remove="TestData\ShareSkill_InvalidDescriptionWithRandomStrings.json" />
@@ -254,6 +258,12 @@
     <Content Include="TestData\DeleteSkills_WhenSessionExpired.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="TestData\ManageListings_EditShareSkill.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\ManageListings_ViewAddShareSkillDetails.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="TestData\SampleWord.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -279,6 +289,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="TestData\ShareSkill_EventDetailsForDaily.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\ShareSkill_EventDetailsForMonthly.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\ShareSkill_EventDetailsForWeekly.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\ShareSkill_EventDetailsForYearly.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="TestData\ShareSkill_InvalidDescriptionFirstCharacterWhiteSpace.json">

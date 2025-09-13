@@ -19,7 +19,7 @@ namespace MarsAdvancedTaskPart1.Test.Tests
             _chat = new ChatComponent(State);
             State.Test.Log(Status.Info, "Get the content from the chat");
             var actual = _chat.GetChatContent();
-            State.Assert.Contains(actual, chat.ExpectedMessageForChat, "Expected and Actual are Equal");
+            State.Assert.Contains(actual, chat.ExpectedMessageForChat, "Expected and Actual are Equal");Console.WriteLine(actual);
         }
     }
 }

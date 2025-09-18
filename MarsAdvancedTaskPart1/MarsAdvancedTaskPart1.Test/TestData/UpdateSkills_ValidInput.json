@@ -1,0 +1,25 @@
+{
+  "AddSkill": [
+    {
+      "Skill": "Communication",
+      "SkillLevel": "Expert"
+    },
+    {
+      "Skill": "Adaptability",
+      "SkillLevel": "Intermediate"
+    }
+  ],
+  "UpdateSkill": [
+    {
+      "ExistingSkill": "Communication",
+      "SkillToUpdate": "Public Speaking",
+      "SkillLevelToUpdate": "Expert"
+    },
+    {
+      "ExistingSkill": "Adaptability",
+      "SkillToUpdate": "Technical",
+      "SkillLevelToUpdate": "Expert"
+    }
+  ],
+  "DeleteSkill": []
+}

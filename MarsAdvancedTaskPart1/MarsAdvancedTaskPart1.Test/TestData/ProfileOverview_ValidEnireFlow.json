@@ -1,0 +1,16 @@
+{
+  "ProfileDetails": [
+    {
+      "FirstName": "Anna",
+      "LastName": "Josh",
+      "Location": null,
+      "Availability": "Part Time",
+      "Hours": "More than 30hours a week",
+      "EarnTarget": "More than $1000 per month",
+      "DisplayNameExpectedMessage": "Anna Josh",
+      "AvailabilityExpectedMessage": "Availability updated",
+      "HoursExpectedMessage": "Availability updated",
+      "EarnTargetExpectedMessage": "Availability updated"
+    }
+  ]
+}

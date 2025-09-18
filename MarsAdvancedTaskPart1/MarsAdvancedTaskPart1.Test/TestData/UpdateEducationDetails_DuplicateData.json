@@ -1,0 +1,23 @@
+{
+  "TestItems": [
+    {
+      "EducationDetailsToAdd": {
+        "CollegeUniversityName": "University of Sydney",
+        "Country": "Australia",
+        "Title": "B.A",
+        "Degree": "Astrophysics",
+        "YearOfGraduation": "2018",
+        "EducationExpectedMessage": "Education has been added"
+      },
+      "EducationDetailsToUpdate": {
+        "CollegeUniversityName": "University of Sydney",
+        "Country": "Australia",
+        "Title": "B.A",
+        "Degree": "Astrophysics",
+        "YearOfGraduation": "2018",
+        "EducationExpectedMessage": "This information is already exist."
+      },
+      "EducationDetailsToDelete": null
+    }
+  ]
+}

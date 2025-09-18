@@ -1,0 +1,17 @@
+{
+  "AddLanguage": [
+    {
+      "Language": "Tamil",
+      "LanguageLevel": "Native/Bilingual"
+    },
+    {
+      "Language": "Tamil",
+      "LanguageLevel": "Native/Bilingual",
+      "Validation": {
+        "ExpectedMessage": "This language is already exist in your language list."
+      }
+    }
+  ],
+  "UpdateLanguage": null,
+  "DeleteLanguage": null
+}

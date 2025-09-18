@@ -1,0 +1,19 @@
+{
+    "AddLanguage": [
+        {
+            "Language": "French",
+            "LanguageLevel": "Fluent"
+        }
+    ],
+    "UpdateLanguage": [
+        {
+            "ExistingLanguage": "French",
+            "LanguageToUpdate": "{LONG_1000}",
+            "LanguageLevelToUpdate": "Basic",
+            "Validation": {
+                "ExpectedMessage": "Language name is too long"
+            }
+        }
+    ],
+    "DeleteLanguage": null
+}

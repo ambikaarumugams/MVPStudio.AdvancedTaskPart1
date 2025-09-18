@@ -1,0 +1,12 @@
+
+  {
+    "Name": "Pranav",
+    "Password": {
+      "CurrentPassword": "AmbikaSenthil123",
+      "NewPassword": "Welcome01",
+      "ConfirmPassword": "Welcome01",
+      "ExpectedMessage": "Password Changed Successfully"
+    },
+    "ExpectedMessageForDeactivateAccount":"Deactivated account" 
+  }
+

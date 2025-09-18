@@ -1,0 +1,16 @@
+{
+  "AddLanguage": [
+    {
+      "Language": "French",
+      "LanguageLevel": "Native/Bilingual"
+    }
+  ],
+  "UpdateLanguage": [
+    {
+      "ExistingLanguage": "French",
+      "LanguageToUpdate": "Japanese",
+      "LanguageLevelToUpdate": "Native/Bilingual",
+    }
+  ],
+  "DeleteLanguage": null
+}

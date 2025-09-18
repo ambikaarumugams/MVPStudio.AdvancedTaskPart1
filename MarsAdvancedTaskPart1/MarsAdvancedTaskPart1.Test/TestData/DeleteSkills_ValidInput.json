@@ -1,0 +1,21 @@
+{
+  "AddSkill": [
+    {
+      "Skill": "Manual Testing",
+      "SkillLevel": "Expert"
+    },
+    {
+      "Skill": "API Testing",
+      "SkillLevel": "Intermediate"
+    }
+  ],
+  "UpdateSkill": [],
+  "DeleteSkill": [
+    {
+      "SkillToBeDeleted": "Manual Testing"
+    },
+    {
+      "SkillToBeDeleted": "API Testing"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "AddLanguage": [
+    {
+      "Language": "Italian",
+      "LanguageLevel": "Basic"
+    }
+  ],
+  "UpdateLanguage": null,
+  "DeleteLanguage": [
+    {
+      "LanguageToBeDeleted": "Italian",
+      "Validation": { "ExpectedMessage": "There is an error when deleting language" }
+    }
+  ]
+}

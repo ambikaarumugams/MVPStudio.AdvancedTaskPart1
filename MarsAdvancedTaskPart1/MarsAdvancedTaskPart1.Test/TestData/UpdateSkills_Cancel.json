@@ -1,0 +1,17 @@
+{
+  "AddSkill": [
+    {
+      "Skill": "C#",
+      "SkillLevel": "Expert"
+    }
+  ],
+  "UpdateSkill": [
+    {
+      "ExistingSkill": "C#",
+      "SkillToUpdate": "Java",
+      "SkillLevelToUpdate": "Intermediate",
+      "SkillValidation": {}
+    }
+  ],
+  "DeleteSkill": []
+}

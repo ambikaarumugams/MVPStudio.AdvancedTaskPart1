@@ -1,0 +1,17 @@
+{
+  "AddSkill": [
+    {
+      "Skill": "Cooking",
+      "SkillLevel": "Beginner"
+    },
+    {
+      "Skill": "Cooking",
+      "SkillLevel": "Expert",
+      "SkillValidation": {
+        "SkillExpectedMessage": "Duplicated data"
+      }
+    }
+  ],
+  "UpdateSkill": [],
+  "DeleteSkill": []
+}

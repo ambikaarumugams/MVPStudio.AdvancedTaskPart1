@@ -1,0 +1,47 @@
+{
+  "AddSkill": [
+    {
+      "Skill": "Java",
+      "SkillLevel": "Expert"
+    },
+    {
+      "Skill": "SQL",
+      "SkillLevel": "Beginner"
+    },
+    {
+      "Skill": "C#",
+      "SkillLevel": "Intermediate"
+    },
+    {
+      "Skill": "API",
+      "SkillLevel": "Intermediate"
+    }
+  ],
+  "UpdateSkill": [
+    {
+      "ExistingSkill": "Java",
+      "SkillToUpdate": "fhhjhkjklkl",
+      "SkillLevelToUpdate": "Expert",
+      "SkillValidation": { "SkillExpectedMessage": "Invalid skill" }
+    },
+    {
+      "ExistingSkill": "SQL",
+      "SkillToUpdate": "!#!$%%^&&*",
+      "SkillLevelToUpdate": "Beginner",
+      "SkillValidation": { "SkillExpectedMessage": "Invalid skill" }
+    },
+    {
+      "ExistingSkill": "C#",
+      "SkillToUpdate": "65656788",
+      "SkillLevelToUpdate": "Intermediate",
+      "SkillValidation": { "SkillExpectedMessage": "Invalid skill" }
+    },
+    {
+      "ExistingSkill": "API",
+      "SkillToUpdate": " ",
+      "SkillLevelToUpdate": "Intermediate",
+      "SkillValidation": { "SkillExpectedMessage": "Invalid skill" }
+    }
+  ],
+  "DeleteSkill": []
+}

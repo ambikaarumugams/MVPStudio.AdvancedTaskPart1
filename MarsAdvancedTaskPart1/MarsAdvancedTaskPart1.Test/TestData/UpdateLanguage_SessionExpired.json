@@ -1,0 +1,20 @@
+{
+    "AddLanguage": [
+        {
+            "Language": "Greek",
+            "LanguageLevel": "Basic",
+            "Validation": null
+        }
+    ],
+    "UpdateLanguage": [
+        {
+            "ExistingLanguage": "Greek",
+            "LanguageToUpdate": "Chinese",
+            "LanguageLevelToUpdate": "Conversational",
+            "Validation": {
+                "ExpectedMessage": "undefined"
+            }
+        }
+    ],
+    "DeleteLanguage": null
+}

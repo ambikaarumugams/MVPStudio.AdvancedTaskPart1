@@ -1,0 +1,19 @@
+{
+  "AddSkill": [
+    {
+      "Skill": "C#",
+      "SkillLevel": "Beginner"
+    }
+  ],
+  "UpdateSkill": [
+    {
+      "ExistingSkill": "C#",
+      "SkillToUpdate": "{LONG_5000}",
+      "SkillLevelToUpdate": "Expert",
+      "SkillValidation": {
+        "SkillExpectedMessage": "Skill name is too long"
+      }
+    }
+  ],
+  "DeleteSkill": []
+}

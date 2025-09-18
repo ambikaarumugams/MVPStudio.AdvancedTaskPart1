@@ -1,0 +1,10 @@
+{
+  "AddSkill": [
+    {
+      "Skill": "API",
+      "SkillLevel": "Intermediate"
+    }
+  ],
+  "UpdateSkill": [],
+  "DeleteSkill": []
+}

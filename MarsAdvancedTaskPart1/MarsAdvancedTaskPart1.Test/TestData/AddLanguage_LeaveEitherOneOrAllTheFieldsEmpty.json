@@ -1,0 +1,27 @@
+{
+  "AddLanguage": [
+    {
+      "Language": "",
+      "LanguageLevel": "Basic",
+      "Validation": {
+        "ExpectedMessage": "Please enter language and level"
+      }
+    },
+    {
+      "Language": "Bengali",
+      "LanguageLevel": "",
+      "Validation": {
+        "ExpectedMessage": "Please enter language and level"
+      }
+    },
+    {
+      "Language": "",
+      "LanguageLevel": "",
+      "Validation": {
+        "ExpectedMessage": "Please enter language and level"
+      }
+    }
+  ],
+  "UpdateLanguage": null,
+  "DeleteLanguage": null
+}

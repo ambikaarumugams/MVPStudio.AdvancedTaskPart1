@@ -1,0 +1,17 @@
+{
+  "AddLanguage": [
+    {
+      "Language": "Tamil",
+      "LanguageLevel": "Native/Bilingual"
+    },
+    {
+      "Language": "Tamil",
+      "LanguageLevel": "Conversational",
+      "Validation": {
+        "ExpectedMessage": "Duplicated data"
+      }
+    }
+  ],
+  "UpdateLanguage": null,
+  "DeleteLanguage": null
+}

@@ -1,0 +1,23 @@
+{
+    "TestItems": [
+        {
+            "EducationDetailsToAdd": {
+                "CollegeUniversityName": "International University for Multidisciplinary Research in Space Sciences",
+                "Country": "Australia",
+                "Title": "PHD",
+                "Degree": "Advanced Multidisciplinary Studies",
+              "YearOfGraduation": "2023",
+                "EducationExpectedMessage": "Education has been added"
+            },
+          "EducationDetailsToUpdate": {
+            "CollegeUniversityName": "International University for Multidisciplinary Research in Space Sciences, Artificial Intelligence, Blockchain, Quantum Physics, Astrobiology, Interstellar Communications, and Applied Philosophy with Extended Campus for Intergalactic Studies",
+            "Country": "Australia",
+            "Title": "PHD",
+            "Degree": "Advanced Multidisciplinary Studies",
+            "YearOfGraduation": "2023",
+            "EducationExpectedMessage": "Education informaion was too long"
+          },
+            "EducationDetailsToDelete": null
+        }
+    ]
+}

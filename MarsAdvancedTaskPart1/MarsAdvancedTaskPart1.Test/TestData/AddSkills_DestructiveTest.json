@@ -1,0 +1,13 @@
+{
+  "AddSkill": [
+    {
+      "Skill": "{LONG_5000}",
+      "SkillLevel": "Intermediate",
+      "SkillValidation": {
+        "SkillExpectedMessage": "Skill name is too long"
+      }
+    }
+  ],
+  "UpdateSkill": [],
+  "DeleteSkill": []
+}

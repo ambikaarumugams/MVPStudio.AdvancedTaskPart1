@@ -1,0 +1,42 @@
+{
+    "TestItems": [
+        {
+            "EducationDetailsToAdd": {
+                "CollegeUniversityName": "Anna University",
+                "Country": "India",
+                "Title": "B.Tech",
+                "Degree": "Computer Science",
+              "YearOfGraduation": "2015",
+                "EducationExpectedMessage": "Education has been added"
+            },
+          "EducationDetailsToUpdate": {
+            "CollegeUniversityName": "IIT",
+            "Country": "India",
+            "Title": "M.Tech",
+            "Degree": "Mechanics",
+            "YearOfGraduation": "2016",
+            "EducationExpectedMessage": "Education has been updated"
+          },
+            "EducationDetailsToDelete": null
+        },
+        {
+          "EducationDetailsToAdd": {
+            "CollegeUniversityName": "MIT",
+            "Country": "United States",
+            "Title": "M.Tech",
+            "Degree": "AI & Robotics",
+            "YearOfGraduation": "2020",
+            "EducationExpectedMessage": "Education has been added"
+          },
+          "EducationDetailsToUpdate": {
+            "CollegeUniversityName": "Harvard University",
+            "Country": "United States",
+            "Title": "M.Tech",
+            "Degree": "Quantum Computing",
+            "YearOfGraduation": "2022",
+            "EducationExpectedMessage": "Education has been updated"
+          },
+            "EducationDetailsToDelete": null
+        }
+    ]
+}

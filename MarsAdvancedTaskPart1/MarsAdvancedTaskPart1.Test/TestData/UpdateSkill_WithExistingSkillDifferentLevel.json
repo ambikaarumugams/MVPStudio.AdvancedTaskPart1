@@ -1,0 +1,16 @@
+{
+  "AddSkill": [
+    {
+      "Skill": "Java",
+      "SkillLevel": "Expert"
+    }
+  ],
+  "UpdateSkill": [
+    {
+      "ExistingSkill": "Java",
+      "SkillToUpdate": "Java",
+      "SkillLevelToUpdate": "Intermediate"
+    }
+  ],
+  "DeleteSkill": []
+}

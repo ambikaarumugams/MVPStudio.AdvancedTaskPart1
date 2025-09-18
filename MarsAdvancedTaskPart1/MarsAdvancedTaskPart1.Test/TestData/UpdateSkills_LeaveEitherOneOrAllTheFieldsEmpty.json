@@ -1,0 +1,35 @@
+{
+  "AddSkill": [
+    {
+      "Skill": "Painting",
+      "SkillLevel": "Beginner"
+    }
+  ],
+  "UpdateSkill": [
+    {
+      "ExistingSkill": "Painting",
+      "SkillToUpdate": "",
+      "SkillLevelToUpdate": "Expert",
+      "SkillValidation": {
+        "SkillExpectedMessage": "Please enter skill and experience level"
+      }
+    },
+    {
+      "ExistingSkill": "Painting",
+      "SkillToUpdate": "Dancing",
+      "SkillLevelToUpdate": "",
+      "SkillValidation": {
+        "SkillExpectedMessage": "Please enter skill and experience level"
+      }
+    },
+    {
+      "ExistingSkill": "Painting",
+      "SkillToUpdate": "",
+      "SkillLevelToUpdate": "",
+      "SkillValidation": {
+        "SkillExpectedMessage": "Please enter skill and experience level"
+      }
+    }
+  ],
+  "DeleteSkill": []
+}

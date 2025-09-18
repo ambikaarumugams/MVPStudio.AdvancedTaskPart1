@@ -1,0 +1,23 @@
+{
+    "TestItems": [
+        {
+            "EducationDetailsToAdd": {
+                "CollegeUniversityName": "NIT",
+                "Country": "India",
+                "Title": "BArch",
+                "Degree": "Architecture",
+              "YearOfGraduation": "2005",
+              "EducationExpectedMessage": "Education has been added"
+            },
+          "EducationDetailsToUpdate": {
+            "CollegeUniversityName": "Oxford University",
+            "Country": "United Kingdom",
+            "Title": "PHD",
+            "Degree": "Computer Science",
+            "YearOfGraduation": "2023",
+            "EdicationExpectedMessage": "There is an error when updating education"
+          },
+            "EducationDetailsToDelete": null
+        }
+    ]
+}

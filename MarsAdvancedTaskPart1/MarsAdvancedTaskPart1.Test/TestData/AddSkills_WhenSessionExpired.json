@@ -1,0 +1,13 @@
+{
+  "AddSkill": [
+    {
+      "Skill": "C#",
+      "SkillLevel": "Beginner",
+      "SkillValidation": {
+        "SkillExpectedMessage": "undefined"
+      }
+    }
+  ],
+  "UpdateSkill": [],
+  "DeleteSkill": []
+}
